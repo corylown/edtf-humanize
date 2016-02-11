@@ -23,7 +23,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF
  => "summer 1975" 
  ```
 
- ### EDTF::Decade
+### EDTF::Decade
 
  ```
 > d = Date.edtf('197x')
