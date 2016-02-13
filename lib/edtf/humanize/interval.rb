@@ -5,7 +5,7 @@ module Edtf
       include Edtf::Humanize::Formats
 
       def humanize
-        "#{apply_if_approximate(self.from)}#{simple_date_format(self.from)}#{Edtf::Humanize.configuration.interval_conjunction}#{simple_date_format(self.to)}"
+        "#{apply_if_approximate(self.from)}#{simple_date_format(self.from)}#{Edtf::Humanize.configuration.interval_connector}#{simple_date_format(self.to)}"
       end
 
       private

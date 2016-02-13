@@ -1,6 +1,6 @@
 # edtf-humanize
 
-This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects.
+This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects.
 
 ## Examples
 
@@ -40,7 +40,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1970s" 
  ```
  
- ### EDTF::Century
+### EDTF::Century
 
  ```
 > d = Date.edtf('19xx')
@@ -49,7 +49,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1900s" 
  ```
 
-  ### EDTF::Interval
+### EDTF::Interval
 
  ```
 > d = Date.edtf('1981/1985')
@@ -58,7 +58,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1981 to 1985"
  ```
 
-  ### EDTF::Set
+### EDTF::Set
 
  ```
 > d = Date.edtf('[1888, 1889, 1891]')
@@ -67,7 +67,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1888, 1889 or 1891"
  ```
 
- ## Configuration
+## Configuration
 
 You can modify some aspects of how dates are humanized. The following options are available (defaults shows).
 
@@ -81,11 +81,11 @@ You can modify some aspects of how dates are humanized. The following options ar
 >   decade_suffix = "s"
 >   century_suffix = "s"
 >   unspecified_digit_substitute = "x"
->   interval_conjunction = " to "
+>   interval_connector = " to "
 >   interval_unspecified_suffix = "s"
->   set_words_connector = ", "
->   set_last_word_connector = " or "
->   set_two_words_connector = " or "
+>   set_dates_connector = ", "
+>   set_last_date_connector = " or "
+>   set_two_dates_connector = " or "
 > end
 ```
  
