@@ -40,7 +40,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1970s" 
  ```
  
- ### EDTF::Century
+### EDTF::Century
 
  ```
 > d = Date.edtf('19xx')
