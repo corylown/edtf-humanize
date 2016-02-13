@@ -69,7 +69,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, 
 
 ## Configuration
 
-You can modify some aspects of how dates are humanized. The following options are available (defaults shows).
+You can modify some aspects of how dates are humanized. The following options are available (defaults shown).
 
 ```
 > Edtf::Humanize.configure do |config|

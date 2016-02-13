@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Cory Lown"]
   s.email       = ["cory.lown@duke.edu"]
   s.homepage    = "https://github.com/duke-libraries/edtf-humanize"
-  s.summary     = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects."
-  s.description = s.summary
+  s.summary     = "This gem adds a humanize method to EDTF dates."
+  s.description = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
