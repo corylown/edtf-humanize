@@ -49,7 +49,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1900s" 
  ```
 
-  ### EDTF::Interval
+### EDTF::Interval
 
  ```
 > d = Date.edtf('1981/1985')
@@ -58,7 +58,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1981 to 1985"
  ```
 
-  ### EDTF::Set
+### EDTF::Set
 
  ```
 > d = Date.edtf('[1888, 1889, 1891]')
@@ -67,7 +67,7 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Centiry, EDTF::Interval, 
  => "1888, 1889 or 1891"
  ```
 
- ## Configuration
+## Configuration
 
 You can modify some aspects of how dates are humanized. The following options are available (defaults shows).
 
