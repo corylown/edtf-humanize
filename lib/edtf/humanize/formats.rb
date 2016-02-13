@@ -25,12 +25,12 @@ module Edtf
 
       # October 5, 1995
       def day_precision_format date
-        date.strftime('%B %-d, %Y')
+        date.strftime(Edtf::Humanize.configuration.day_precision_strftime_format)
       end
 
       # October 1995
       def month_precision_format date
-        date.strftime('%B %Y')
+        date.strftime(Edtf::Humanize.configuration.month_precision_strftime_format)
       end
       
       # 1995
@@ -42,7 +42,7 @@ module Edtf
       def apply_if_approximate date
         if date.respond_to? :approximate?
           if date.approximate?
-            "circa "
+            Edtf::Humanize.configuration.approximate_date_prefix
           end
         end
       end
@@ -51,7 +51,7 @@ module Edtf
       def apply_if_uncertain date
         if date.respond_to? :uncertain?
           if date.uncertain?
-            "?"
+            Edtf::Humanize.configuration.uncertain_date_suffix
           end
         end
       end
@@ -61,7 +61,7 @@ module Edtf
         display = date_precision(date)
         if date.respond_to? :unspecified?
           if date.unspecified? :year
-            year_substitute = date.year_precision.edtf.gsub(/u/, 'x')
+            year_substitute = date.year_precision.edtf.gsub(/u/, Edtf::Humanize.configuration.unspecified_digit_substitute)
             display.gsub!("#{date.year}", year_substitute)
           end
         end

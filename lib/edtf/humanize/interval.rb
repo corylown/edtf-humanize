@@ -5,7 +5,7 @@ module Edtf
       include Edtf::Humanize::Formats
 
       def humanize
-        "#{apply_if_approximate(self.from)}#{simple_date_format(self.from)} to #{simple_date_format(self.to)}"
+        "#{apply_if_approximate(self.from)}#{simple_date_format(self.from)}#{Edtf::Humanize.configuration.interval_conjunction}#{simple_date_format(self.to)}"
       end
 
       private
@@ -15,7 +15,7 @@ module Edtf
         display = date_precision(date)
         if date.respond_to? :unspecified?
           if date.unspecified? :year
-            display << "s"
+            display << Edtf::Humanize.configuration.interval_unspecified_suffix
           end
         end
         display
