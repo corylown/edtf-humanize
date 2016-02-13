@@ -1,11 +1,11 @@
 module Edtf
   module Humanize
-    module Decade
+    module Century
 
       include Edtf::Humanize::Formats
     
       def humanize
-        "#{self.begin.year}#{Edtf::Humanize.configuration.decade_suffix}"
+        "#{self.begin.year}#{Edtf::Humanize.configuration.century_suffix}"
       end
 
     end
