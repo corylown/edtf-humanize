@@ -35,7 +35,7 @@ module Edtf
       
       # 1995
       def year_precision_format date
-        date.strftime('%Y')
+        date.strftime(Edtf::Humanize.configuration.year_precision_strftime_format)
       end
 
       # '1990~' => circa 1990
