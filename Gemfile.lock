@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     edtf-humanize (0.0.1)
-      edtf (~> 2.3.0)
-      rails (~> 4.1.0)
+      edtf (~> 2.3)
+      rails (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -82,6 +82,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  edtf (~> 2.3)
   edtf-humanize!
   sqlite3
 
