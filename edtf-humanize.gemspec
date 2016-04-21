@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/duke-libraries/edtf-humanize"
   s.summary     = "This gem adds a humanize method to EDTF dates."
   s.description = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects."
-  s.license     = "MIT"
+  s.license     = "BSD-3-Clause"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
