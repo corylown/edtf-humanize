@@ -72,20 +72,20 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, 
 You can modify some aspects of how dates are humanized. The following options are available (defaults shown).
 
 ```
-> Edtf::Humanize.configure do |config|
->   day_precision_strftime_format = "%B %-d, %Y"
->   month_precision_strftime_format = "%B %Y"
->   year_precision_strftime_format = "%Y"
->   approximate_date_prefix = "circa "
->   uncertain_date_suffix = "?"
->   decade_suffix = "s"
->   century_suffix = "s"
->   unspecified_digit_substitute = "x"
->   interval_connector = " to "
->   interval_unspecified_suffix = "s"
->   set_dates_connector = ", "
->   set_last_date_connector = " or "
->   set_two_dates_connector = " or "
-> end
+Edtf::Humanize.configure do |config|
+  day_precision_strftime_format = "%B %-d, %Y"
+  month_precision_strftime_format = "%B %Y"
+  year_precision_strftime_format = "%Y"
+  approximate_date_prefix = "circa "
+  uncertain_date_suffix = "?"
+  decade_suffix = "s"
+  century_suffix = "s"
+  unspecified_digit_substitute = "x"
+  interval_connector = " to "
+  interval_unspecified_suffix = "s"
+  set_dates_connector = ", "
+  set_last_date_connector = " or "
+  set_two_dates_connector = " or "
+end
 ```
  
