@@ -9,8 +9,8 @@ module Edtf
     require 'edtf/humanize/season'
     require 'edtf/humanize/interval'
     require 'edtf/humanize/set'
-    require 'edtf/humanize/iso_date'
     require 'edtf/humanize/unknown'
+    require 'edtf/humanize/iso_date'
 
     EDTF::Decade.include Edtf::Humanize::Decade
     EDTF::Century.include Edtf::Humanize::Century
