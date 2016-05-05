@@ -11,10 +11,10 @@ Gem::Specification.new do |s|
   s.email       = ["cory.lown@duke.edu"]
   s.homepage    = "https://github.com/duke-libraries/edtf-humanize"
   s.summary     = "This gem adds a humanize method to EDTF dates."
-  s.description = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects."
+  s.description = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, and Date (ISO 8601 compliant) objects."
   s.license     = "BSD-3-Clause"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.0"

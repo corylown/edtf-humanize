@@ -1,6 +1,6 @@
 # edtf-humanize
 
-This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, EDTF::Set, EDTF::Season, and Date (ISO 8601 compliant) objects.
+This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, and Date (ISO 8601 compliant) objects.
 
 ## Examples
 
@@ -67,6 +67,15 @@ This gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, 
  => "1888, 1889 or 1891"
  ```
 
+### EDTF::Unknown
+
+```
+> d = Date.edtf('uuuu')
+ => #<EDTF::Unknown:0x0000000c04c688 @d=1>
+> d.humanize
+ => "unknown"
+```
+
 ## Configuration
 
 You can modify some aspects of how dates are humanized. The following options are available (defaults shown).
@@ -86,6 +95,7 @@ Edtf::Humanize.configure do |config|
   set_dates_connector = ", "
   set_last_date_connector = " or "
   set_two_dates_connector = " or "
+  unknown = "unknown"
 end
 ```
  
