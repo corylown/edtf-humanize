@@ -9,6 +9,7 @@ module Edtf
     require 'edtf/humanize/season'
     require 'edtf/humanize/interval'
     require 'edtf/humanize/set'
+    require 'edtf/humanize/unknown'
     require 'edtf/humanize/iso_date'
 
     EDTF::Decade.include Edtf::Humanize::Decade
@@ -16,7 +17,9 @@ module Edtf
     EDTF::Season.include Edtf::Humanize::Season
     EDTF::Interval.include Edtf::Humanize::Interval
     EDTF::Set.include Edtf::Humanize::Set
+    EDTF::Unknown.include Edtf::Humanize::Unknown
     Date.include Edtf::Humanize::IsoDate
+
 
     def self.configuration
       @configuration ||= Configuration.new
@@ -44,7 +47,8 @@ module Edtf
                     :set_dates_connector,
                     :set_last_date_connector,
                     :set_two_dates_connector,
-                    :interval_unspecified_suffix
+                    :interval_unspecified_suffix,
+                    :unknown
 
       def initialize
         @day_precision_strftime_format = "%B %-d, %Y"
@@ -66,6 +70,8 @@ module Edtf
         @set_dates_connector = ", "
         @set_last_date_connector = " or "
         @set_two_dates_connector = " or "
+
+        @unknown = "unknown"
       end
 
     end
