@@ -68,3 +68,11 @@ class HumanizeSetTest < ActiveSupport::TestCase
     assert_equal "1980, 1981 or 1983", d.humanize
   end
 end
+
+class HumanizeUnknownTest < ActiveSupport::TestCase
+  test "should return a humanized unknown string" do
+    d = Date.edtf('uuuu')
+    assert_equal "unknown", d.humanize
+  end
+end
+
