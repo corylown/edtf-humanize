@@ -32,7 +32,7 @@ module Edtf
       def month_precision_format date
         date.strftime(Edtf::Humanize.configuration.month_precision_strftime_format)
       end
-      
+
       # 1995
       def year_precision_format date
         date.strftime(Edtf::Humanize.configuration.year_precision_strftime_format)
