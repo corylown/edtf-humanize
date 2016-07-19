@@ -56,12 +56,12 @@ module Edtf
         @year_precision_strftime_format = "%Y"
 
         @approximate_date_prefix = "circa "
-        
+
         @uncertain_date_suffix = "?"
-        
+
         @decade_suffix = "s"
         @century_suffix = "s"
-        
+
         @unspecified_digit_substitute = "x"
 
         @interval_connector = " to "
@@ -75,6 +75,6 @@ module Edtf
       end
 
     end
-   
+
   end
 end
