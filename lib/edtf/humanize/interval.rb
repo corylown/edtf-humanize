@@ -9,7 +9,7 @@ module Edtf
         "#{simple_date_format(self.from)}"\
         "#{Edtf::Humanize.configuration.interval_connector}"\
         "#{apply_if_approximate(self.to)}"\
-        "#{simple_date_format(self.to)}"\
+        "#{simple_date_format(self.to)}"
       end
 
       private
