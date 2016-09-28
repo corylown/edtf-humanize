@@ -30,7 +30,7 @@ end
 class HumanizeApproximateIntervalTest < ActiveSupport::TestCase
   test "should return a humanized approximate interval string" do
     d = Date.edtf('1970~/1980~')
-    assert_equal "circa 1970 to 1980", d.humanize
+    assert_equal "circa 1970 to circa 1980", d.humanize
   end
 end
 
