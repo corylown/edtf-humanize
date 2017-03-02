@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency "activesupport", ">= 4", "< 6"
 
   s.add_development_dependency "rails", ">= 4", "< 6"
+  s.add_development_dependency "bump"
 end
