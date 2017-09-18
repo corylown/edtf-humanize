@@ -25,12 +25,12 @@ module Edtf
 
       # October 5, 1995
       def day_precision_format date
-        I18n.localize(date, format: Edtf::Humanize.configuration.day_precision_strftime_format)
+        I18n.localize(date, locale: Edtf::Humanize.configuration.locale, format: Edtf::Humanize.configuration.day_precision_strftime_format)
       end
 
       # October 1995
       def month_precision_format date
-        I18n.localize(date, format: Edtf::Humanize.configuration.month_precision_strftime_format)
+        I18n.localize(date, locale: Edtf::Humanize.configuration.locale, format: Edtf::Humanize.configuration.month_precision_strftime_format)
       end
 
       # 1995
