@@ -109,6 +109,10 @@ require 'edtf-humanize'
  => "unknown"
 ```
 
+### I18n
+
+TODO
+
 ## Configuration
 
 You can configure some aspects of how dates are humanized. In a Rails application you could place the following block in an initializer to modify the default configurations. The current set of options were driven by local use cases. Please feel free to submit an issue if you have a use case not covered by the current options.

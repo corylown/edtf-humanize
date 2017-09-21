@@ -35,8 +35,7 @@ module Edtf
 
     class Configuration
 
-      attr_accessor :locale,
-                    :day_precision_strftime_format,
+      attr_accessor :day_precision_strftime_format,
                     :month_precision_strftime_format,
                     :year_precision_strftime_format,
                     :approximate_date_prefix,
@@ -52,8 +51,6 @@ module Edtf
                     :unknown
 
       def initialize
-        @locale = :en
-
         @day_precision_strftime_format = "%B %-d, %Y"
         @month_precision_strftime_format = "%B %Y"
         @year_precision_strftime_format = "%Y"
