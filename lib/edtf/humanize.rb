@@ -44,10 +44,12 @@ module Edtf
                     :century_suffix,
                     :unspecified_digit_substitute,
                     :interval_connector,
+                    :interval_unspecified_suffix,
                     :set_dates_connector,
                     :set_last_date_connector,
                     :set_two_dates_connector,
-                    :interval_unspecified_suffix,
+                    :set_earlier_prefix,
+                    :set_later_prefix,
                     :unknown
 
       def initialize
@@ -70,6 +72,8 @@ module Edtf
         @set_dates_connector = ", "
         @set_last_date_connector = " or "
         @set_two_dates_connector = " or "
+        @set_earlier_prefix = "on or before "
+        @set_later_prefix = "on or after "
 
         @unknown = "unknown"
       end
