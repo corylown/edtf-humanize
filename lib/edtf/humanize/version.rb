@@ -1,5 +1,5 @@
 module Edtf
   module Humanize
-    VERSION = "0.0.7.post"
+    VERSION = "1.0.0"
   end
 end
