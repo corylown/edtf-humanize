@@ -14,12 +14,13 @@ Gem::Specification.new do |s|
   s.description = "This gem adds a humanize method to EDTF::Decade, EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, and Date (ISO 8601 compliant) objects."
   s.license     = "BSD-3-Clause"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "README.rdoc"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "edtf", ">= 2.3", "< 4"
-  s.add_dependency "activesupport", ">= 4", "< 6"
+  s.add_dependency "activesupport", ">= 4"
 
-  s.add_development_dependency "rails", ">= 4", "< 6"
+  s.add_development_dependency "rake", "~> 13.0"
+  s.add_development_dependency "rspec", "~> 3.9"
   s.add_development_dependency "bump"
 end
