@@ -109,6 +109,32 @@ require 'edtf-humanize'
  => "unknown"
 ```
 
+## I18n
+
+EDTF-humanize uses I18n to translate several date formats in the language set by I18n.locale.
+At the moment instances of EDTF::Century and EDTF::Decade are not translated.
+
+Example of a Rails application with current locale `:it`:
+
+```
+> d = Date.edtf('1973-08')
+ => Wed, 01 Aug 1973
+> d.humanize
+ => "agosto 1973"
+```
+
+To translate instances of EDTF::Season you need to add these keys to your Rails I18n locale file:
+
+```yaml
+it:
+  date:
+    seasons:
+      spring: "primavera"
+      summer: "estate"
+      autumn: "autunno"
+      winter: "inverno"
+```
+
 ## Configuration
 
 You can configure some aspects of how dates are humanized. In a Rails application you could place the following block in an initializer to modify the default configurations. The current set of options were driven by local use cases. Please feel free to submit an issue if you have a use case not covered by the current options.
