@@ -1,0 +1,28 @@
+en:
+  edtf:
+    terms:
+      approximate_date_prefix_day: "circa "
+      approximate_date_prefix_month: "circa "
+      approximate_date_prefix_year: "circa "
+      century_suffix: "s"
+      decade_prefix: ""
+      decade_suffix: "s"
+      interval_prefix_approximate: ""
+      interval_prefix_day: ""
+      interval_prefix_month: ""
+      interval_prefix_year: ""
+      interval_connector_approximate: " to "
+      interval_connector_day: " to  "
+      interval_connector_month: " to "
+      interval_connector_year: " to "
+      set_dates_connector_exclusive: ", "
+      set_dates_connector_inclusive: ", "
+      set_last_date_connector_exclusive: " or "
+      set_last_date_connector_inclusive: " and "
+      set_two_dates_connector_exclusive: " or "
+      set_two_dates_connector_inclusive: " and "
+      uncertain_date_suffix: "?"
+    formats:
+      day_precision_strftime_format: "%B %-d, %Y"
+      month_precision_strftime_format: "%B %Y"
+      year_precision_strftime_format: "%Y"

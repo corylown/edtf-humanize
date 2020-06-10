@@ -11,11 +11,11 @@ module Edtf
       def date_precision date
         if date.respond_to? :precision
           case date.precision
-          when :day                     # 2010-10-25
+          when :day # 2010-10-25
             day_precision_format(date)
-          when :month                   # 2010-10
+          when :month # 2010-10
             month_precision_format(date)
-          when :year                    # 2010
+          when :year # 2010
             year_precision_format(date)
           end
         else
@@ -25,24 +25,31 @@ module Edtf
 
       # October 5, 1995
       def day_precision_format date
-        I18n.localize(date, format: Edtf::Humanize.configuration.day_precision_strftime_format)
+        I18n.localize(date, format: I18n.t("edtf.formats.day_precision_strftime_format"))
       end
 
       # October 1995
       def month_precision_format date
-        I18n.localize(date, format: Edtf::Humanize.configuration.month_precision_strftime_format)
+        I18n.localize(date, format: I18n.t("edtf.formats.month_precision_strftime_format"))
       end
 
       # 1995
       def year_precision_format date
-        date.strftime(Edtf::Humanize.configuration.year_precision_strftime_format)
+        date.strftime(I18n.t("edtf.formats.year_precision_strftime_format"))
       end
 
       # '1990~' => circa 1990
       def apply_if_approximate date
         if date.respond_to? :approximate?
           if date.approximate?
-            Edtf::Humanize.configuration.approximate_date_prefix
+            case date.precision
+            when :year
+              "#{I18n.t("edtf.terms.approximate_date_prefix_year")}"
+            when :month
+              "#{I18n.t("edtf.terms.approximate_date_prefix_month")}"
+            when :day
+              "#{I18n.t("edtf.terms.approximate_date_prefix_day")}"
+            end
           end
         end
       end
@@ -51,7 +58,7 @@ module Edtf
       def apply_if_uncertain date
         if date.respond_to? :uncertain?
           if date.uncertain?
-            Edtf::Humanize.configuration.uncertain_date_suffix
+            I18n.t("edtf.terms.uncertain_date_suffix")
           end
         end
       end

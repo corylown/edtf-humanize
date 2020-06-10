@@ -3,8 +3,9 @@ module Edtf
     module Season
 
       include Edtf::Humanize::Formats
+      include Edtf::Humanize::Strategies
 
-      def humanize
+      def basic_humanize
         "#{apply_if_approximate(self)}"\
         "#{translate_season(self.season)} #{self.year}"\
         "#{apply_if_uncertain(self)}"

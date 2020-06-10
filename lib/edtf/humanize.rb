@@ -4,6 +4,7 @@ module Edtf
     require 'edtf'
 
     require 'edtf/humanize/formats'
+    require 'edtf/humanize/strategies'
     require 'edtf/humanize/decade'
     require 'edtf/humanize/century'
     require 'edtf/humanize/season'
@@ -11,6 +12,9 @@ module Edtf
     require 'edtf/humanize/set'
     require 'edtf/humanize/unknown'
     require 'edtf/humanize/iso_date'
+    require 'edtf/humanize/strategy/default'
+    require 'edtf/humanize/strategy/french'
+    require 'edtf/humanize/strategy/english'
 
     EDTF::Decade.include Edtf::Humanize::Decade
     EDTF::Century.include Edtf::Humanize::Century
@@ -35,47 +39,38 @@ module Edtf
 
     class Configuration
 
-      attr_accessor :day_precision_strftime_format,
-                    :month_precision_strftime_format,
-                    :year_precision_strftime_format,
-                    :approximate_date_prefix,
-                    :uncertain_date_suffix,
-                    :decade_suffix,
-                    :century_suffix,
-                    :unspecified_digit_substitute,
-                    :interval_connector,
+      attr_accessor :unspecified_digit_substitute,
                     :interval_unspecified_suffix,
-                    :set_dates_connector,
-                    :set_last_date_connector,
-                    :set_two_dates_connector,
                     :set_earlier_prefix,
                     :set_later_prefix,
                     :unknown
 
       def initialize
-        @day_precision_strftime_format = "%B %-d, %Y"
-        @month_precision_strftime_format = "%B %Y"
-        @year_precision_strftime_format = "%Y"
-
-        @approximate_date_prefix = "circa "
-
-        @uncertain_date_suffix = "?"
-
-        @decade_suffix = "s"
-        @century_suffix = "s"
+        @language_strategies = {
+            default: Edtf::Humanize::Strategy::Default,
+            en: Edtf::Humanize::Strategy::English,
+            fr: Edtf::Humanize::Strategy::French,
+        }
 
         @unspecified_digit_substitute = "x"
 
-        @interval_connector = " to "
         @interval_unspecified_suffix = "s"
 
         @set_dates_connector = ", "
-        @set_last_date_connector = " or "
-        @set_two_dates_connector = " or "
         @set_earlier_prefix = "on or before "
         @set_later_prefix = "on or after "
 
         @unknown = "unknown"
+      end
+
+      def set_language_strategy(language, strategy)
+        raise "Language strategy for #{language.to_s} should be a class" unless strategy.class == Class
+        raise "Language strategy for #{language.to_s} should define 'humanize' method" unless strategy.instance_methods.contains(:humanize)
+        @language_strategies[language.to_sym] = strategy
+      end
+
+      def language_strategy(language)
+        @language_strategies[language.to_sym] || language_strategies[:default]
       end
 
     end

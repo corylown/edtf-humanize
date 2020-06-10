@@ -3,9 +3,10 @@ module Edtf
     module Decade
 
       include Edtf::Humanize::Formats
+      include Edtf::Humanize::Strategies
 
-      def humanize
-        "#{self.begin.year}#{Edtf::Humanize.configuration.decade_suffix}"
+      def basic_humanize
+        "#{I18n.t("edtf.terms.decade_prefix")}#{self.begin.year}#{I18n.t("edtf.terms.decade_suffix")}"
       end
 
     end

@@ -3,9 +3,10 @@ module Edtf
     module Century
 
       include Edtf::Humanize::Formats
+      include Edtf::Humanize::Strategies
 
-      def humanize
-        "#{self.begin.year}#{Edtf::Humanize.configuration.century_suffix}"
+      def basic_humanize
+        "#{self.begin.year}#{I18n.t("edtf.terms.century_suffix")}"
       end
 
     end
