@@ -39,7 +39,7 @@ module Edtf
       end
 
       # '1990~' => circa 1990
-      def apply_if_approximate date
+      def apply_prefix_if_approximate date
         if date.respond_to? :approximate?
           if date.approximate?
             case date.precision
@@ -49,6 +49,22 @@ module Edtf
               "#{I18n.t("edtf.terms.approximate_date_prefix_month")}"
             when :day
               "#{I18n.t("edtf.terms.approximate_date_prefix_day")}"
+            end
+          end
+        end
+      end
+
+      # '1990~' => 1990 environ
+      def apply_suffix_if_approximate date
+        if date.respond_to? :approximate?
+          if date.approximate?
+            case date.precision
+            when :year
+              "#{I18n.t("edtf.terms.approximate_date_suffix_year")}"
+            when :month
+              "#{I18n.t("edtf.terms.approximate_date_suffix_month")}"
+            when :day
+              "#{I18n.t("edtf.terms.approximate_date_suffix_day")}"
             end
           end
         end
@@ -71,8 +87,33 @@ module Edtf
             year_substitute = date.year_precision.edtf.gsub(/u/, Edtf::Humanize.configuration.unspecified_digit_substitute)
             display.gsub!("#{date.year}", year_substitute)
           end
+          elsif date
         end
         display
+      end
+
+      # open/1980 => Jusqu'en 1980
+      def open_start_interval(formatted_date:, precision:)
+        case date.precision
+        when :year
+          "#{I18n.t("edtf.terms.open_start_interval_with_year", date: formatted_date)}"
+        when :month
+          "#{I18n.t("edtf.terms.open_start_interval_with_month", date: formatted_date)}"
+        when :day
+          "#{I18n.t("edtf.terms.open_start_interval_with_day", date: formatted_date)}"
+        end
+      end
+
+      # 1980/open => Depuis 1980
+      def open_end_interval(formatted_date:, precision:)
+        case precision
+        when :year
+          "#{I18n.t("edtf.terms.open_end_interval_with_year", date: formatted_date)}"
+        when :month
+          "#{I18n.t("edtf.terms.open_end_interval_with_month", date: formatted_date)}"
+        when :day
+          "#{I18n.t("edtf.terms.open_end_interval_with_day", date: formatted_date)}"
+        end
       end
 
     end

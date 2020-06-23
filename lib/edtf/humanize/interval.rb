@@ -7,18 +7,26 @@ module Edtf
 
       def basic_humanize
         output = ""
-        output << (interval_prefix || "")
-        output << (apply_if_approximate(self.from) || "")
-        output << (date_format(self.from) || "")
-        output << (interval_connector || "")
-        output << (apply_if_approximate(self.to) || "")
-        output << (date_format(self.to) || "")
+        if self.from == :open
+          output << (open_interval(formatted_date: formatted_date(self.to), type: :start, precision: self.to.precision) || "")
+        elsif self.to == :open
+          output << (open_interval(formatted_date: formatted_date(self.from), type: :end, precision: self.from.precision) || "")
+        else
+          output << (interval_prefix || "")
+          output << formatted_date(self.from)
+          output << (interval_connector || "")
+          output << formatted_date(self.to)
+        end
+
       end
 
       private
 
+      def formatted_date(date)
+        (apply_prefix_if_approximate(date) || "") << (date_format(date) || "") << (apply_suffix_if_approximate(date) || "")
+      end
+
       def interval_prefix
-        return "#{I18n.t("edtf.terms.interval_prefix_approximate")}" if (self.from.approximate.day || self.from.approximate.month || self.from.approximate.year)
         case self.from.precision
         when :year
           I18n.t("edtf.terms.interval_prefix_year")
@@ -30,6 +38,7 @@ module Edtf
       end
 
       def interval_connector
+        return "#{I18n.t("edtf.terms.interval_connector_open")}" if self.to == :open
         return "#{I18n.t("edtf.terms.interval_connector_approximate")}" if (self.to.approximate.day || self.to.approximate.month || self.to.approximate.year)
         case self.to.precision
         when :year

@@ -20,8 +20,9 @@ module Edtf
         dates.entries.map.with_index {|date, index|
           "#{apply_if_earlier(dates, index)}"\
           "#{apply_if_later(dates, index)}"\
-          "#{apply_if_approximate(date)}"\
-          "#{date_format(date)}"
+          "#{apply_prefix_if_approximate(date)}"\
+          "#{date_format(date)}"\
+          "#{apply_suffix_if_approximate(date)}"\
         }
       end
 

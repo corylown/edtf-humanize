@@ -6,7 +6,7 @@ module Edtf
       include Edtf::Humanize::Strategies
 
       def basic_humanize
-        "#{apply_if_approximate(self)}#{date_format(self)}"
+        "#{apply_prefix_if_approximate(self)}#{date_format(self)}#{apply_suffix_if_approximate(self)}"
       end
 
     end

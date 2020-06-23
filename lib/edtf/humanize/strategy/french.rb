@@ -32,7 +32,7 @@ module Edtf
           if date.year.abs / 100 == 0
             "er siècle"
           else
-            "ème siècle"
+            "e siècle"
           end
         end
 

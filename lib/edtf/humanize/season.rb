@@ -6,8 +6,9 @@ module Edtf
       include Edtf::Humanize::Strategies
 
       def basic_humanize
-        "#{apply_if_approximate(self)}"\
+        "#{apply_prefix_if_approximate(self)}"\
         "#{translate_season(self.season)} #{self.year}"\
+        "#{apply_suffix_if_approximate(self)}"\
         "#{apply_if_uncertain(self)}"
       end
 
