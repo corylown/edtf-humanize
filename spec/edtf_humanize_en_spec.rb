@@ -1,7 +1,6 @@
 require 'edtf-humanize'
 
 RSpec.describe Edtf::Humanize do
-
   it { is_expected.to be_a(Module) }
 
   before(:each) do
@@ -49,7 +48,7 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
-  context 'with an unspecfic year iso date' do 
+  context 'with an unspecfic year iso date' do
     it 'should return a humanized unspecified year ISO date string' do
       expect(Date.edtf('197u').humanize).to eq('197x')
     end
@@ -61,7 +60,7 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
-  context 'with a set' do 
+  context 'with a set' do
     it 'should return a humanized set string' do
       expect(Date.edtf('[1980, 1981, 1983]').humanize).to eq('1980, 1981 or 1983')
     end

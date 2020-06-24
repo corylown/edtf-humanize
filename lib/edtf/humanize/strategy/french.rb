@@ -2,7 +2,6 @@ module Edtf
   module Humanize
     module Strategy
       class French < Default
-
         def humanize(date)
           case date
           when ::EDTF::Century
@@ -23,13 +22,13 @@ module Edtf
 
         def format_century(date)
           require 'roman'
-          "#{(date.year.abs / 100 + 1).to_roman.to_s}" << century_number_suffix(date) << century_sign_suffix(date)
+          (date.year.abs / 100 + 1).to_roman.to_s << century_number_suffix(date) << century_sign_suffix(date)
         end
 
         private
 
         def century_number_suffix(date)
-          if date.year.abs / 100 == 0
+          if (date.year.abs / 100).zero?
             "er siècle"
           else
             "e siècle"
@@ -43,7 +42,6 @@ module Edtf
             ""
           end
         end
-
       end
     end
   end

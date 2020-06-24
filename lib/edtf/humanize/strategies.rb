@@ -1,7 +1,6 @@
 module Edtf
   module Humanize
     module Strategies
-
       def humanize
         language_strategy.humanize(self)
       end
@@ -17,7 +16,6 @@ module Edtf
       def language_strategy
         Edtf::Humanize.configuration.language_strategy(I18n.locale).new
       end
-
     end
   end
 end

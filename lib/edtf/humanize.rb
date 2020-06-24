@@ -38,7 +38,6 @@ module Edtf
     end
 
     class Configuration
-
       attr_accessor :unspecified_digit_substitute,
                     :interval_unspecified_suffix,
                     :set_earlier_prefix,
@@ -52,27 +51,26 @@ module Edtf
             fr: Edtf::Humanize::Strategy::French,
         }
 
-        @unspecified_digit_substitute = "x"
+        @unspecified_digit_substitute = 'x'
 
-        @interval_unspecified_suffix = "s"
+        @interval_unspecified_suffix = 's'
 
-        @set_dates_connector = ", "
-        @set_earlier_prefix = "on or before "
-        @set_later_prefix = "on or after "
+        @set_dates_connector = ', '
+        @set_earlier_prefix = 'on or before '
+        @set_later_prefix = 'on or after '
 
-        @unknown = "unknown"
+        @unknown = 'unknown'
       end
 
       def set_language_strategy(language, strategy)
-        raise "Language strategy for #{language.to_s} should be a class" unless strategy.class == Class
-        raise "Language strategy for #{language.to_s} should define 'humanize' method" unless strategy.instance_methods.contains(:humanize)
+        raise "Language strategy for #{language} should be a class" unless strategy.class == Class
+        raise "Language strategy for #{language} should define 'humanize' method" unless strategy.instance_methods.contains(:humanize)
         @language_strategies[language.to_sym] = strategy
       end
 
       def language_strategy(language)
         @language_strategies[language.to_sym] || language_strategies[:default]
       end
-
     end
 
   end
