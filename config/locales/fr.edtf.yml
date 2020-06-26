@@ -1,0 +1,48 @@
+fr:
+  date:
+    day_names: [Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi]
+    abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Decembre]
+    abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Jun, Jul, Aou, Sep, Oct, Nov, Dec]
+    seasons:
+      spring: "printemps"
+      summer: "été"
+      autumn: "automne"
+      winter: "hiver"
+  edtf:
+    terms:
+      approximate_date_prefix_day: ""
+      approximate_date_prefix_month: ""
+      approximate_date_prefix_year: ""
+      approximate_date_suffix_day: " environ"
+      approximate_date_suffix_month: " environ"
+      approximate_date_suffix_year: " environ"
+      decade_prefix: "Les années "
+      decade_suffix: ""
+      century_suffix: ""
+      interval_prefix_day: "Du "
+      interval_prefix_month: "De "
+      interval_prefix_year: "De "
+      interval_connector_approximate: " à "
+      interval_connector_open: " à "
+      interval_connector_day: " au  "
+      interval_connector_month: " à "
+      interval_connector_year: " à "
+      open_start_interval_with_day: "Jusqu'au %{date}"
+      open_start_interval_with_month: "Jusqu'en %{date}"
+      open_start_interval_with_year: "Jusqu'en %{date}"
+      open_end_interval_with_day: "Depuis le %{date}"
+      open_end_interval_with_month: "Depuis %{date}"
+      open_end_interval_with_year: "Depuis %{date}"
+      set_dates_connector_exclusive: ", "
+      set_dates_connector_inclusive: ", "
+      set_last_date_connector_exclusive: " ou "
+      set_last_date_connector_inclusive: " et "
+      set_two_dates_connector_exclusive: " ou "
+      set_two_dates_connector_inclusive: " et "
+      uncertain_date_suffix: "?"
+    formats:
+      day_precision_strftime_format: "%-d %B %Y"
+      month_precision_strftime_format: "%B %Y"
+      year_precision_strftime_format: "%Y"

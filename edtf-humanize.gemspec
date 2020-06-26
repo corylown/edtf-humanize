@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "edtf", ">= 2.3", "< 4"
   s.add_dependency "activesupport", ">= 4"
+  s.add_dependency "roman", "~> 0.2.0"
 
   s.add_development_dependency "rake", "~> 13.0"
   s.add_development_dependency "rspec", "~> 3.9"
