@@ -109,54 +109,24 @@ require 'edtf-humanize'
  => "unknown"
 ```
 
-## I18n
+## Internationalization
 
-EDTF-humanize uses I18n to translate several date formats in the language set by I18n.locale.
-At the moment instances of EDTF::Century and EDTF::Decade are not translated.
+EDTF-humanize supports the use of I18n as well as different language strategies for more nuanced control. Currently, English and French are supported.
 
-Example of a Rails application with current locale `:it`:
-
-```
-> d = Date.edtf('1973-08')
- => Wed, 01 Aug 1973
-> d.humanize
- => "agosto 1973"
-```
-
-To translate instances of EDTF::Season you need to add these keys to your Rails I18n locale file:
-
-```yaml
-it:
-  date:
-    seasons:
-      spring: "primavera"
-      summer: "estate"
-      autumn: "autunno"
-      winter: "inverno"
-```
-
-## Configuration
-
-You can configure some aspects of how dates are humanized. In a Rails application you could place the following block in an initializer to modify the default configurations. The current set of options were driven by local use cases. Please feel free to submit an issue if you have a use case not covered by the current options.
-
-The following options are available (defaults shown).
+Examples with current locale `:fr`:
 
 ```
-Edtf::Humanize.configure do |config|
-  config.day_precision_strftime_format = "%B %-d, %Y"
-  config.month_precision_strftime_format = "%B %Y"
-  config.year_precision_strftime_format = "%Y"
-  config.approximate_date_prefix = "circa "
-  config.uncertain_date_suffix = "?"
-  config.decade_suffix = "s"
-  config.century_suffix = "s"
-  config.unspecified_digit_substitute = "x"
-  config.interval_connector = " to "
-  config.interval_unspecified_suffix = "s"
-  config.set_dates_connector = ", "
-  config.set_last_date_connector = " or "
-  config.set_two_dates_connector = " or "
-  config.unknown = "unknown"
-end
+> Date.edtf('1975-24').humanize
+ => "hiver 1975"
+ > Date.edtf('20xx').humanize
+ => "XXIe siècle"
 ```
+
+Pull requests to add support for additional languages are welcome. You must add a new Strategy class for the language that inherits from the Default strategy and a locales file. For example, the supporting files for French are found here:
+
+```
+edtf-humanize/config/locales/fr.edtf.yml
+edtf-humanize/lib/edtf/humanize/strategy/french.rb
+```
+
 
