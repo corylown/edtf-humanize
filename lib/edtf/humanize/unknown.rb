@@ -4,7 +4,7 @@ module Edtf
       include Edtf::Humanize::Strategies
 
       def basic_humanize
-        Edtf::Humanize.configuration.unknown
+        I18n.t('edtf.terms.unknown')
       end
     end
   end

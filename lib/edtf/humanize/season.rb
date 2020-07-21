@@ -15,11 +15,9 @@ module Edtf
       private
 
       def translate_season(season)
-        
           I18n.translate!("date.seasons.#{self.season}")
         rescue I18n::MissingTranslationData
           self.season
-        
       end
     end
   end

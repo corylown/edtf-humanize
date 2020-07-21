@@ -27,7 +27,7 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an open interval' do
     it 'should return a humanized interval string' do
-      expect(Date.edtf('1970/open').humanize).to eq('Since 1970')
+      expect(Date.edtf('1970/open').humanize).to eq('since 1970')
     end
   end
 

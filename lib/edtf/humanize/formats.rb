@@ -77,7 +77,8 @@ module Edtf
         display = date_precision(date)
         if date.respond_to? :unspecified?
           if date.unspecified? :year
-            year_substitute = date.year_precision.edtf.gsub(/u/, Edtf::Humanize.configuration.unspecified_digit_substitute)
+            year_substitute = date.year_precision.edtf.gsub(/u/,
+                                                            I18n.t('edtf.terms.unspecified_digit_substitute'))
             display.gsub!(date.year.to_s, year_substitute)
           end
         elsif date
