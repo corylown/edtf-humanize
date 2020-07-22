@@ -38,10 +38,12 @@ fr:
       open_end_interval_with_year: "Depuis %{date}"
       set_dates_connector_exclusive: ", "
       set_dates_connector_inclusive: ", "
-      set_earlier_prefix: 'Le ou avant '
+      set_earlier_prefix_exclusive: 'Le ou avant '
+      set_earlier_prefix_inclusive: 'Le et avant '
       set_last_date_connector_exclusive: " ou "
       set_last_date_connector_inclusive: " et "
-      set_later_prefix: 'Le ou après '
+      set_later_prefix_exclusive: 'Le ou après '
+      set_later_prefix_inclusive: 'Le et après '
       set_two_dates_connector_exclusive: " ou "
       set_two_dates_connector_inclusive: " et "
       uncertain_date_suffix: "?"

@@ -27,10 +27,12 @@ en:
       open_end_interval_with_year: "since %{date}"
       set_dates_connector_exclusive: ", "
       set_dates_connector_inclusive: ", "
-      set_earlier_prefix: 'on or before '
+      set_earlier_prefix_exclusive: 'on or before '
+      set_earlier_prefix_inclusive: 'on and before '
       set_last_date_connector_exclusive: " or "
       set_last_date_connector_inclusive: " and "
-      set_later_prefix: 'on or after '
+      set_later_prefix_exclusive: 'on or after '
+      set_later_prefix_inclusive: 'on and after '
       set_two_dates_connector_exclusive: " or "
       set_two_dates_connector_inclusive: " and "
       uncertain_date_suffix: "?"

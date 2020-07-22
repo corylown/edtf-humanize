@@ -1,6 +1,5 @@
 module Edtf
   module Humanize
-
     require 'edtf'
 
     require 'edtf/humanize/formats'

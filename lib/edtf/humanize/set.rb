@@ -2,12 +2,10 @@
 module Edtf
   module Humanize
     module Set
-
       include Edtf::Humanize::Formats
       include Edtf::Humanize::Strategies
 
       def basic_humanize
-        mode = choice? ? 'exclusive' : 'inclusive'
         format_set_entries(self).to_sentence(
             words_connector: I18n.t("edtf.terms.set_dates_connector_#{mode}", default: ', '),
             last_word_connector: I18n.t("edtf.terms.set_last_date_connector_#{mode}",
@@ -31,14 +29,23 @@ module Edtf
 
       # '[..1760-12-03]' => on or before December 3, 1760
       def apply_if_earlier(dates, index)
-        I18n.t('edtf.terms.set_earlier_prefix', default: 'on or before ') if dates.earlier? && index == 0
+        if dates.earlier? && index == 0
+          I18n.t("edtf.terms.set_earlier_prefix_#{mode}",
+                 default: mode == 'inclusive' ? 'on and before ' : 'on or before ')
+        end
       end
 
       # '[1760-12..]' => on or after December 1760
       def apply_if_later(dates, index)
-        I18n.t('edtf.terms.set_later_prefix', default: 'on or after ') if dates.later? && (index + 1) == dates.size
+        if dates.later? && (index + 1) == dates.size
+          I18n.t("edtf.terms.set_later_prefix_#{mode}",
+                 default: mode == 'inclusive' ? 'on and after ' : 'on or after ')
+        end
       end
 
+      def mode
+        self.choice? ? 'exclusive' : 'inclusive'
+      end
     end
   end
 end
