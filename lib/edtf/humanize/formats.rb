@@ -24,17 +24,20 @@ module Edtf
 
       # October 5, 1995
       def day_precision_format(date)
-        I18n.localize(date, format: I18n.t('edtf.formats.day_precision_strftime_format'))
+        I18n.localize(date, format: I18n.t('edtf.formats.day_precision_strftime_format',
+                                           default: '%B %-d, %Y'))
       end
 
       # October 1995
       def month_precision_format(date)
-        I18n.localize(date, format: I18n.t('edtf.formats.month_precision_strftime_format'))
+        I18n.localize(date, format: I18n.t('edtf.formats.month_precision_strftime_format',
+                                           default: '%B %Y'))
       end
 
       # 1995
       def year_precision_format(date)
-        date.strftime(I18n.t('edtf.formats.year_precision_strftime_format'))
+        date.strftime(I18n.t('edtf.formats.year_precision_strftime_format',
+                             default: '%Y'))
       end
 
       # '1990~' => circa 1990
@@ -43,11 +46,11 @@ module Edtf
 
         case date.precision
         when :year
-          I18n.t('edtf.terms.approximate_date_prefix_year')
+          I18n.t('edtf.terms.approximate_date_prefix_year', default: 'circa ')
         when :month
-          I18n.t('edtf.terms.approximate_date_prefix_month')
+          I18n.t('edtf.terms.approximate_date_prefix_month', default: 'circa ')
         when :day
-          I18n.t('edtf.terms.approximate_date_prefix_day')
+          I18n.t('edtf.terms.approximate_date_prefix_day', default: 'circa ')
         end
       end
 
@@ -57,11 +60,11 @@ module Edtf
 
         case date.precision
         when :year
-          I18n.t('edtf.terms.approximate_date_suffix_year')
+          I18n.t('edtf.terms.approximate_date_suffix_year', default: '')
         when :month
-          I18n.t('edtf.terms.approximate_date_suffix_month')
+          I18n.t('edtf.terms.approximate_date_suffix_month', default: '')
         when :day
-          I18n.t('edtf.terms.approximate_date_suffix_day')
+          I18n.t('edtf.terms.approximate_date_suffix_day', default: '')
         end
       end
 
@@ -69,7 +72,7 @@ module Edtf
       def apply_if_uncertain(date)
         return '' unless date.respond_to?(:uncertain?) && date.uncertain?
 
-        I18n.t('edtf.terms.uncertain_date_suffix')
+        I18n.t('edtf.terms.uncertain_date_suffix', default: '?')
       end
 
       # '198u' => 198x
@@ -77,8 +80,10 @@ module Edtf
         display = date_precision(date)
         if date.respond_to? :unspecified?
           if date.unspecified? :year
-            year_substitute = date.year_precision.edtf.gsub(/u/,
-                                                            I18n.t('edtf.terms.unspecified_digit_substitute'))
+            year_substitute =
+              date.year_precision.edtf.gsub(/u/,
+                                            I18n.t('edtf.terms.unspecified_digit_substitute',
+                                                   default: 'x'))
             display.gsub!(date.year.to_s, year_substitute)
           end
         elsif date
@@ -90,11 +95,17 @@ module Edtf
       def open_start_interval(formatted_date:, precision:)
         case precision
         when :year
-          I18n.t('edtf.terms.open_start_interval_with_year', date: formatted_date)
+          I18n.t('edtf.terms.open_start_interval_with_year',
+                 date: formatted_date,
+                 default: "until #{formatted_date}")
         when :month
-          I18n.t('edtf.terms.open_start_interval_with_month', date: formatted_date)
+          I18n.t('edtf.terms.open_start_interval_with_month',
+                 date: formatted_date,
+                 default: "until #{formatted_date}")
         when :day
-          I18n.t('edtf.terms.open_start_interval_with_day', date: formatted_date)
+          I18n.t('edtf.terms.open_start_interval_with_day',
+                 date: formatted_date,
+                 default: "until #{formatted_date}")
         end
       end
 
@@ -102,11 +113,17 @@ module Edtf
       def open_end_interval(formatted_date:, precision:)
         case precision
         when :year
-          I18n.t('edtf.terms.open_end_interval_with_year', date: formatted_date)
+          I18n.t('edtf.terms.open_end_interval_with_year',
+                 date: formatted_date,
+                 default: "since #{formatted_date}")
         when :month
-          I18n.t('edtf.terms.open_end_interval_with_month', date: formatted_date)
+          I18n.t('edtf.terms.open_end_interval_with_month',
+                 date: formatted_date,
+                 default: "since #{formatted_date}")
         when :day
-          I18n.t('edtf.terms.open_end_interval_with_day', date: formatted_date)
+          I18n.t('edtf.terms.open_end_interval_with_day',
+                 date: formatted_date,
+                 default: "since #{formatted_date}")
         end
       end
     end

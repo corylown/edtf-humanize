@@ -13,8 +13,8 @@ module Edtf
     require 'edtf/humanize/unknown'
     require 'edtf/humanize/iso_date'
     require 'edtf/humanize/strategy/default'
-    require 'edtf/humanize/strategy/french'
     require 'edtf/humanize/strategy/english'
+    require 'edtf/humanize/strategy/french'
 
     EDTF::Decade.include Edtf::Humanize::Decade
     EDTF::Century.include Edtf::Humanize::Century
@@ -23,7 +23,6 @@ module Edtf
     EDTF::Set.include Edtf::Humanize::Set
     EDTF::Unknown.include Edtf::Humanize::Unknown
     Date.include Edtf::Humanize::IsoDate
-
 
     def self.configuration
       @configuration ||= Configuration.new
@@ -42,7 +41,7 @@ module Edtf
         @language_strategies = {
             default: Edtf::Humanize::Strategy::Default,
             en: Edtf::Humanize::Strategy::English,
-            fr: Edtf::Humanize::Strategy::French,
+            fr: Edtf::Humanize::Strategy::French
         }
       end
 
@@ -53,7 +52,7 @@ module Edtf
       end
 
       def language_strategy(language)
-        @language_strategies[language.to_sym] || language_strategies[:default]
+        @language_strategies[language.to_sym] || @language_strategies[:default]
       end
     end
 
