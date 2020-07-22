@@ -5,7 +5,7 @@ module Edtf
       include Edtf::Humanize::Strategies
 
       def basic_humanize
-        "#{self.begin.year}#{I18n.t('edtf.terms.century_suffix')}"
+        "#{self.begin.year}#{I18n.t('edtf.terms.century_suffix', default: 's')}"
       end
     end
   end

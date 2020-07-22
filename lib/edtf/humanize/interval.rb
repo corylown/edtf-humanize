@@ -27,11 +27,11 @@ module Edtf
       def interval_prefix
         case from.precision
         when :year
-          I18n.t('edtf.terms.interval_prefix_year')
+          I18n.t('edtf.terms.interval_prefix_year', default: '')
         when :month
-          I18n.t('edtf.terms.interval_prefix_month')
+          I18n.t('edtf.terms.interval_prefix_month', default: '')
         when :day
-          I18n.t('edtf.terms.interval_prefix_day')
+          I18n.t('edtf.terms.interval_prefix_day', default: '')
         end
       end
 
@@ -39,16 +39,16 @@ module Edtf
         return I18n.t('edtf.terms.interval_connector_open').to_s if to == :open
 
         if to.approximate.day || to.approximate.month || to.approximate.year
-          return I18n.t('edtf.terms.interval_connector_approximate').to_s
+          return I18n.t('edtf.terms.interval_connector_approximate', default: ' to ')
         end
 
         case to.precision
         when :year
-          I18n.t('edtf.terms.interval_connector_year')
+          I18n.t('edtf.terms.interval_connector_year', default: ' to ')
         when :month
-          I18n.t('edtf.terms.interval_connector_month')
+          I18n.t('edtf.terms.interval_connector_month', default: ' to ')
         when :day
-          I18n.t('edtf.terms.interval_connector_day')
+          I18n.t('edtf.terms.interval_connector_day', default: ' to ')
         end
       end
 
@@ -56,7 +56,7 @@ module Edtf
       def apply_if_unspecified_year(date)
         display = date_precision(date)
         if date.respond_to? :unspecified?
-          display << I18n.t('edtf.terms.interval_unspecified_suffix') if date.unspecified? :year
+          display << I18n.t('edtf.terms.interval_unspecified_suffix', default: 's') if date.unspecified? :year
         end
         display
       end
