@@ -38,28 +38,12 @@ module Edtf
     end
 
     class Configuration
-      attr_accessor :unspecified_digit_substitute,
-                    :interval_unspecified_suffix,
-                    :set_earlier_prefix,
-                    :set_later_prefix,
-                    :unknown
-
       def initialize
         @language_strategies = {
             default: Edtf::Humanize::Strategy::Default,
             en: Edtf::Humanize::Strategy::English,
             fr: Edtf::Humanize::Strategy::French,
         }
-
-        @unspecified_digit_substitute = 'x'
-
-        @interval_unspecified_suffix = 's'
-
-        @set_dates_connector = ', '
-        @set_earlier_prefix = 'on or before '
-        @set_later_prefix = 'on or after '
-
-        @unknown = 'unknown'
       end
 
       def set_language_strategy(language, strategy)

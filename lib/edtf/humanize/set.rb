@@ -29,12 +29,12 @@ module Edtf
 
       # '[..1760-12-03]' => on or before December 3, 1760
       def apply_if_earlier(dates, index)
-        Edtf::Humanize.configuration.set_earlier_prefix if dates.earlier? && index == 0
+        I18n.t('edtf.terms.set_earlier_prefix') if dates.earlier? && index == 0
       end
 
       # '[1760-12..]' => on or after December 1760
       def apply_if_later(dates, index)
-        Edtf::Humanize.configuration.set_later_prefix if dates.later? && (index + 1) == dates.size
+        I18n.t('edtf.terms.set_later_prefix') if dates.later? && (index + 1) == dates.size
       end
 
     end

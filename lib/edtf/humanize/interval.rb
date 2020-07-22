@@ -56,7 +56,7 @@ module Edtf
       def apply_if_unspecified_year(date)
         display = date_precision(date)
         if date.respond_to? :unspecified?
-          display << Edtf::Humanize.configuration.interval_unspecified_suffix if date.unspecified? :year
+          display << I18n.t('edtf.terms.interval_unspecified_suffix') if date.unspecified? :year
         end
         display
       end
