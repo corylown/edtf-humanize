@@ -2,9 +2,7 @@ module Edtf
   module Humanize
     module Strategy
       class Default
-
         include Edtf::Humanize::Formats
-
 
         def humanize(date)
           date.basic_humanize

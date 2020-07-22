@@ -13,7 +13,7 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
-  context 'with a centrury' do
+  context 'with a century' do
     it 'should return a humanized century string' do
       expect(Date.edtf('19xx').humanize).to eq('1900s')
     end
@@ -61,8 +61,28 @@ RSpec.describe Edtf::Humanize do
   end
 
   context 'with a set' do
-    it 'should return a humanized set string' do
+    it 'should return a humanized exclusive set string' do
       expect(Date.edtf('[1980, 1981, 1983]').humanize).to eq('1980, 1981 or 1983')
+    end
+
+    it 'should return a humanized inclusive set string' do
+      expect(Date.edtf('{1980, 1981, 1983}').humanize).to eq('1980, 1981 and 1983')
+    end
+
+    it 'should return a humanized open (before) exclusive set string' do
+      expect(Date.edtf('[..1980]').humanize).to eq('on or before 1980')
+    end
+
+    it 'should return a humanized open (after) exclusive set string' do
+      expect(Date.edtf('[1980..]').humanize).to eq('on or after 1980')
+    end
+
+    it 'should return a humanized open (before) inclusive set string' do
+      expect(Date.edtf('{..1980}').humanize).to eq('on and before 1980')
+    end
+
+    it 'should return a humanized open (after) inclusive set string' do
+      expect(Date.edtf('{1980..}').humanize).to eq('on and after 1980')
     end
   end
 
