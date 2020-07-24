@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 module Edtf
   module Humanize
     module Century
-      include Edtf::Humanize::Formats
-      include Edtf::Humanize::Strategies
+      include Edtf::Humanize::Language
 
-      def basic_humanize
-        "#{self.begin.year}#{I18n.t('edtf.terms.century_suffix', default: 's')}"
+      def humanize
+        language_strategy::Century.humanizer(self)
       end
     end
   end

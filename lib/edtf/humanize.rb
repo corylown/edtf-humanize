@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module Edtf
   module Humanize
     require 'edtf'
 
-    require 'edtf/humanize/formats'
-    require 'edtf/humanize/strategies'
+    require 'edtf/humanize/language'
     require 'edtf/humanize/decade'
     require 'edtf/humanize/century'
     require 'edtf/humanize/season'
@@ -11,9 +12,17 @@ module Edtf
     require 'edtf/humanize/set'
     require 'edtf/humanize/unknown'
     require 'edtf/humanize/iso_date'
-    require 'edtf/humanize/strategy/default'
-    require 'edtf/humanize/strategy/english'
-    require 'edtf/humanize/strategy/french'
+    require 'edtf/humanize/language/default/formats'
+    require 'edtf/humanize/language/default/decade'
+    require 'edtf/humanize/language/default/century'
+    require 'edtf/humanize/language/default/season'
+    require 'edtf/humanize/language/default/interval'
+    require 'edtf/humanize/language/default/set'
+    require 'edtf/humanize/language/default/unknown'
+    require 'edtf/humanize/language/default/iso_date'
+    require 'edtf/humanize/language/default'
+    require 'edtf/humanize/language/english'
+    require 'edtf/humanize/language/french'
 
     EDTF::Decade.include Edtf::Humanize::Decade
     EDTF::Century.include Edtf::Humanize::Century
@@ -38,22 +47,15 @@ module Edtf
     class Configuration
       def initialize
         @language_strategies = {
-            default: Edtf::Humanize::Strategy::Default,
-            en: Edtf::Humanize::Strategy::English,
-            fr: Edtf::Humanize::Strategy::French
+          default: Edtf::Humanize::Language::Default,
+          en: Edtf::Humanize::Language::English,
+          fr: Edtf::Humanize::Language::French
         }
-      end
-
-      def set_language_strategy(language, strategy)
-        raise "Language strategy for #{language} should be a class" unless strategy.class == Class
-        raise "Language strategy for #{language} should define 'humanize' method" unless strategy.instance_methods.contains(:humanize)
-        @language_strategies[language.to_sym] = strategy
       end
 
       def language_strategy(language)
         @language_strategies[language.to_sym] || @language_strategies[:default]
       end
     end
-
   end
 end

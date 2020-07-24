@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Declare your gem's dependencies in edtf_humanize.gemspec.
@@ -14,4 +16,3 @@ gem 'edtf', '>= 2.3', '< 4'
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
