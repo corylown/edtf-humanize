@@ -111,7 +111,7 @@ require 'edtf-humanize'
 
 ## Internationalization
 
-EDTF-humanize supports the use of I18n as well as different language strategies for more nuanced control. Currently, English and French are supported.
+EDTF-humanize supports the use of I18n as well as language specific module overrides for more nuanced control. English and French are supported.
 
 Examples with current locale `:fr`:
 
@@ -122,11 +122,12 @@ Examples with current locale `:fr`:
  => "XXIe siècle"
 ```
 
-Pull requests to add support for additional languages are welcome. You must add a new Strategy class for the language that inherits from the Default strategy and a locales file. For example, the supporting files for French are found here:
+Pull requests to add support for additional languages are welcome. You must add a new language module for the language and include the Default language module. A locales file with translations is also needed. For example, the supporting files for French may be used as a reference for adding support for additional languages.:
 
 ```
+edtf-humanize/lib/edtf/humanize.rb
 edtf-humanize/config/locales/fr.edtf.yml
-edtf-humanize/lib/edtf/humanize/strategy/french.rb
+edtf-humanize/lib/edtf/humanize/language/french.rb
 ```
 
 

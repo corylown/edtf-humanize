@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Edtf
   module Humanize
     module Unknown
-      include Edtf::Humanize::Strategies
+      include Edtf::Humanize::Language
 
-      def basic_humanize
-        I18n.t('edtf.terms.unknown', default: 'unknown')
+      def humanize
+        language_strategy::Unknown.humanizer(self)
       end
     end
   end
