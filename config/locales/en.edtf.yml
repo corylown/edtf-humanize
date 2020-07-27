@@ -14,7 +14,7 @@ en:
       interval_prefix_month: ""
       interval_prefix_year: ""
       interval_connector_approximate: " to "
-      interval_connector_day: " to  "
+      interval_connector_day: " to "
       interval_connector_open: " to "
       interval_connector_month: " to "
       interval_connector_year: " to "
