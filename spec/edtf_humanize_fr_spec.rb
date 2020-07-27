@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'edtf_humanize'
+require 'edtf-humanize'
 
 RSpec.describe Edtf::Humanize do
   before do

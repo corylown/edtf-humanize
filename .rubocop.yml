@@ -25,6 +25,9 @@ Metrics/ModuleLength:
     - lib/edtf/humanize/language/default/formats.rb
     - lib/edtf/humanize/language/default/interval.rb
 
+Naming/FileName:
+  Enabled: false
+
 RSpec/FilePath:
   Enabled: false
 
