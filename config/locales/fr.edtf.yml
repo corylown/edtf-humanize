@@ -26,7 +26,7 @@ fr:
       interval_prefix_year: "De "
       interval_connector_approximate: " à "
       interval_connector_open: " à "
-      interval_connector_day: " au  "
+      interval_connector_day: " au "
       interval_connector_month: " à "
       interval_connector_year: " à "
       interval_unspecified_suffix: "s"
