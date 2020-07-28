@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 module Edtf
   module Humanize
     module Decade
-
-      include Edtf::Humanize::Formats
+      include Edtf::Humanize::Language
 
       def humanize
-        "#{self.begin.year}#{Edtf::Humanize.configuration.decade_suffix}"
+        language_strategy::Decade.humanizer(self)
       end
-
     end
   end
 end

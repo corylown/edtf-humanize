@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 module Edtf
   module Humanize
     module IsoDate
-
-      include Edtf::Humanize::Formats
+      include Edtf::Humanize::Language
 
       def humanize
-        "#{apply_if_approximate(self)}#{simple_date_format(self)}"
+        language_strategy::IsoDate.humanizer(self)
       end
-
     end
   end
 end

@@ -1,0 +1,39 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  NewCops: enable
+
+Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/*
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/MethodLength:
+  Max: 14
+
+Metrics/ModuleLength:
+  Exclude:
+    - lib/edtf/humanize/language/default/formats.rb
+    - lib/edtf/humanize/language/default/interval.rb
+
+Naming/FileName:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
+
+Style/ModuleFunction:
+  Enabled: false
