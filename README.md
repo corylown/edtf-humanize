@@ -122,12 +122,17 @@ Examples with current locale `:fr`:
  => "XXIe siècle"
 ```
 
-Pull requests to add support for additional languages are welcome. You must add a new language module for the language and include the Default language module. A locales file with translations is also needed. For example, the supporting files for French may be used as a reference for adding support for additional languages.:
+Pull requests to add support for additional languages are welcome. You must add a new language module for the language and include the Default language module. A locales file with translations is also needed. The supporting files for French may be used as a reference for adding support for additional languages.:
 
 ```
 edtf-humanize/lib/edtf/humanize.rb
 edtf-humanize/config/locales/fr.edtf.yml
 edtf-humanize/lib/edtf/humanize/language/french.rb
+edtf-humanize/spec/edtf_humanize_fr_spec.rb
 ```
+
+## Contributions
+
+Contributions, especially to add support for additional languages are welcome. Tests are expected and written using RSpec. Code style is enforced with Rubocop.
 
 
