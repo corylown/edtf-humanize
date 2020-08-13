@@ -33,7 +33,7 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
-  context 'with an appoximate interval'
+  context 'with an approximate interval'
   it 'returns a humanized approximate interval string' do
     expect(Date.edtf('1970~/1980~').humanize).to(
       eq('De 1970 environ à 1980 environ')
@@ -52,7 +52,7 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
-  context 'with an unspecfic year iso date' do
+  context 'with an unspecified year iso date' do
     it 'returns a humanized unspecified year ISO date string' do
       expect(Date.edtf('197u').humanize).to eq('197x')
     end
