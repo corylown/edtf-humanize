@@ -1,0 +1,55 @@
+it:
+  date:
+    day_names: [domenica, lunedì, martedì, mercoledì, giovedì, venerdì, sabato]
+    abbr_day_names: [dom, lun, mar, mer, gio, ven, sab]
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre]
+    abbr_month_names: [~, gen, feb, mar, apr, mag, giu, lug, ago, set, ott, nov, dic]
+    seasons:
+      spring: "primavera"
+      summer: "estate"
+      autumn: "autunno"
+      winter: "inverno"
+  edtf:
+    terms:
+      approximate_date_prefix_day: "circa "
+      approximate_date_prefix_month: "circa "
+      approximate_date_prefix_year: "circa "
+      approximate_date_suffix_day: ""
+      approximate_date_suffix_month: ""
+      approximate_date_suffix_year: ""
+      decade_prefix: "anni "
+      decade_suffix: ""
+      century_suffix: ""
+      interval_prefix_day: ""
+      interval_prefix_month: ""
+      interval_prefix_year: ""
+      interval_connector_approximate: " - "
+      interval_connector_open: " - "
+      interval_connector_day: " - "
+      interval_connector_month: " - "
+      interval_connector_year: " - "
+      interval_unspecified_suffix: ""
+      open_start_interval_with_day: "fino a %{date}"
+      open_start_interval_with_month: "fino a %{date}"
+      open_start_interval_with_year: "fino a %{date}"
+      open_end_interval_with_day: "%{date} - "
+      open_end_interval_with_month: "%{date} - "
+      open_end_interval_with_year: "%{date} - "
+      set_dates_connector_exclusive: ", "
+      set_dates_connector_inclusive: ", "
+      set_earlier_prefix_exclusive: "prima di "
+      set_earlier_prefix_inclusive: "prima di "
+      set_last_date_connector_exclusive: " o "
+      set_last_date_connector_inclusive: " e "
+      set_later_prefix_exclusive: "dopo "
+      set_later_prefix_inclusive: "dopo "
+      set_two_dates_connector_exclusive: " o "
+      set_two_dates_connector_inclusive: " e "
+      uncertain_date_suffix: " ?"
+      unknown: "data sconosciuta"
+      unspecified_digit_substitute: "x"
+    formats:
+      day_precision_strftime_format: "%-d %B %Y"
+      month_precision_strftime_format: "%B %Y"
+      year_precision_strftime_format: "%Y"
