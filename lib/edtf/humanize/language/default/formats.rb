@@ -104,7 +104,6 @@ module Edtf
                   )
                 display.gsub!(date.year.to_s, year_substitute)
               end
-            elsif date
             end
             display
           end
