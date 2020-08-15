@@ -5,7 +5,7 @@ The EDTF-humanize gem adds a humanize method to EDTF::Decade, EDTF::Century, EDT
 
 See the [edtf-ruby project's documentation](https://github.com/inukshuk/edtf-ruby) for details about supported EDTF string formats and other implementation details.
 
-This gem is used in production by Duke University Library's [digital repository](https://github.com/duke-libraries/ddr-public) to transform date metadata stored as Extended Date Time Format (EDTF) strings into human readable strings for display.
+This gem is used in production by Duke University Library's [digital repository](https://gitlab.oit.duke.edu/ddr/ddr-xenon/) to transform date metadata stored as Extended Date Time Format (EDTF) strings into human readable strings for display.
 
 
 ## Installation
@@ -111,7 +111,7 @@ require 'edtf-humanize'
 
 ## Internationalization
 
-EDTF-humanize supports the use of I18n as well as language specific module overrides for more nuanced control. English, French and Italian are supported.
+EDTF-humanize supports the use of I18n as well as language specific module overrides for more nuanced control. English, French, and Italian are supported.
 
 Examples with current locale `:fr`:
 
