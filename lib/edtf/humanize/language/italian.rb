@@ -11,9 +11,9 @@ module Edtf
 
           def humanizer(date)
             require 'roman'
-            "#{(date.year.abs / 100 + 1).to_roman}" \
-            "#{century_number_suffix}" \
-            "#{century_sign_suffix(date)}"
+            "#{((date.year.abs / 100) + 1).to_roman}" \
+              "#{century_number_suffix}" \
+              "#{century_sign_suffix(date)}"
           end
 
           private

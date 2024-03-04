@@ -14,9 +14,9 @@ module Edtf
               open_interval(date)
             else
               "#{interval_prefix(date)}" \
-              "#{formatted_date(date.from)}" \
-              "#{interval_connector(date)}" \
-              "#{formatted_date(date.to)}"
+                "#{formatted_date(date.from)}" \
+                "#{interval_connector(date)}" \
+                "#{formatted_date(date.to)}"
             end
           end
 
@@ -70,8 +70,8 @@ module Edtf
 
           def formatted_date(date)
             "#{apply_prefix_if_approximate(date)}" \
-            "#{date_format(date)}" \
-            "#{apply_suffix_if_approximate(date)}"
+              "#{date_format(date)}" \
+              "#{apply_suffix_if_approximate(date)}"
           end
 
           def interval_prefix(date)

@@ -94,16 +94,14 @@ module Edtf
           # '198u' => 198x
           def apply_if_unspecified_year(date)
             display = date_precision(date)
-            if date.respond_to? :unspecified?
-              if date.unspecified? :year
-                year_substitute =
-                  date.year_precision.edtf.gsub(
-                    /u/,
-                    I18n.t('edtf.terms.unspecified_digit_substitute',
-                           default: 'x')
-                  )
-                display.gsub!(date.year.to_s, year_substitute)
-              end
+            if date.respond_to?(:unspecified?) && (date.unspecified? :year)
+              year_substitute =
+                date.year_precision.edtf.gsub(
+                  'u',
+                  I18n.t('edtf.terms.unspecified_digit_substitute',
+                         default: 'x')
+                )
+              display.gsub!(date.year.to_s, year_substitute)
             end
             display
           end

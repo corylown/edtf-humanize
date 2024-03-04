@@ -31,17 +31,17 @@ module Edtf
 
           def format_set_entries(dates)
             dates.entries.map.with_index do |date, index|
-              "#{apply_if_earlier(dates, index)}"\
-              "#{apply_if_later(dates, index)}"\
-              "#{apply_prefix_if_approximate(date)}"\
-              "#{date_format(date)}"\
-              "#{apply_suffix_if_approximate(date)}"\
+              "#{apply_if_earlier(dates, index)}" \
+                "#{apply_if_later(dates, index)}" \
+                "#{apply_prefix_if_approximate(date)}" \
+                "#{date_format(date)}" \
+                "#{apply_suffix_if_approximate(date)}" \
             end
           end
 
           # '[..1760-12-03]' => on or before December 3, 1760
           def apply_if_earlier(dates, index)
-            return earlier_prefix(dates) if dates.earlier? && index.zero?
+            earlier_prefix(dates) if dates.earlier? && index.zero?
           end
 
           def earlier_prefix(dates)
@@ -55,8 +55,8 @@ module Edtf
 
           # '[1760-12..]' => on or after December 1760
           def apply_if_later(dates, index)
-            return later_prefix(dates) if dates.later? &&
-                                          (index + 1) == dates.size
+            later_prefix(dates) if dates.later? &&
+                                   (index + 1) == dates.size
           end
 
           def later_prefix(dates)

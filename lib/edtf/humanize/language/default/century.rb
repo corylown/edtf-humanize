@@ -11,7 +11,7 @@ module Edtf
 
           def humanizer(date)
             "#{date.begin.year}" \
-            "#{I18n.t('edtf.terms.century_suffix', default: 's')}"
+              "#{I18n.t('edtf.terms.century_suffix', default: 's')}"
           end
         end
       end
