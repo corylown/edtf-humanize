@@ -111,7 +111,7 @@ require 'edtf-humanize'
 
 ## Internationalization
 
-EDTF-humanize supports the use of I18n as well as language specific module overrides for more nuanced control. English, French, and Italian are supported.
+EDTF-humanize supports the use of I18n as well as language specific module overrides for more nuanced control. English, French, German, and Italian are supported.
 
 Examples with current locale `:fr`:
 
@@ -128,7 +128,7 @@ Pull requests to add support for additional languages are welcome. You must add 
 edtf-humanize/lib/edtf/humanize.rb
 edtf-humanize/config/locales/fr.edtf.yml
 edtf-humanize/lib/edtf/humanize/language/french.rb
-edtf-humanize/spec/edtf_humanize_fr_spec.rb
+edtf-humanize/spec/edtf/humanize_fr_spec.rb
 ```
 
 ## Contributions
