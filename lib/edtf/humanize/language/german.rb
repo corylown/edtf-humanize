@@ -3,27 +3,25 @@
 module Edtf
   module Humanize
     module Language
-      module Italian
+      module German
         include Default
 
         module Century
           extend self
 
           def humanizer(date)
-            require 'roman'
-            "#{((date.year.abs / 100) + 1).to_roman}" \
-              "#{century_number_suffix}" \
-              "#{century_sign_suffix(date)}"
+            "#{(date.year.abs / 100) + 1}." \
+              "#{century_number_suffix}"
           end
 
           private
 
           def century_number_suffix
-            ' secolo'
+            ' Jahrhundert'
           end
 
           def century_sign_suffix(date)
-            return ' a. C.' if date.year.negative?
+            return ' v. Chr.' if date.year.negative?
 
             ''
           end

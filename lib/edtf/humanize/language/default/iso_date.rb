@@ -11,8 +11,8 @@ module Edtf
 
           def humanizer(date)
             "#{apply_prefix_if_approximate(date)}" \
-            "#{date_format(date)}" \
-            "#{apply_suffix_if_approximate(date)}"
+              "#{date_format(date)}" \
+              "#{apply_suffix_if_approximate(date)}"
           end
         end
       end

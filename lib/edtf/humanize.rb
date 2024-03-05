@@ -24,6 +24,7 @@ module Edtf
     require 'edtf/humanize/language/english'
     require 'edtf/humanize/language/french'
     require 'edtf/humanize/language/italian'
+    require 'edtf/humanize/language/german'
 
     EDTF::Decade.include Edtf::Humanize::Decade
     EDTF::Century.include Edtf::Humanize::Century
@@ -51,7 +52,8 @@ module Edtf
           default: Edtf::Humanize::Language::Default,
           en: Edtf::Humanize::Language::English,
           fr: Edtf::Humanize::Language::French,
-          it: Edtf::Humanize::Language::Italian
+          it: Edtf::Humanize::Language::Italian,
+          de: Edtf::Humanize::Language::German
         }
       end
 
