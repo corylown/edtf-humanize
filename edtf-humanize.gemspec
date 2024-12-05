@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
                   'EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, ' \
                   'and Date (ISO 8601 compliant) objects.'
   s.license     = 'BSD-3-Clause'
-  s.required_ruby_version = '>= 2.4', '< 4'
+  s.required_ruby_version = '>= 2.3', '< 4'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE.txt', 'README.rdoc']
 
