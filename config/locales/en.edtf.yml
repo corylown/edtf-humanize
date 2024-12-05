@@ -35,6 +35,7 @@ en:
       set_later_prefix_inclusive: 'on and after '
       set_two_dates_connector_exclusive: " or "
       set_two_dates_connector_inclusive: " and "
+      uncertain_date_prefix: ""
       uncertain_date_suffix: "?"
       unknown: 'unknown'
       unspecified_digit_substitute: "x"

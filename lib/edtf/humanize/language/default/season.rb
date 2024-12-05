@@ -10,10 +10,11 @@ module Edtf
           extend self
 
           def humanizer(date)
-            "#{apply_prefix_if_approximate(date)}" \
+            "#{apply_prefix_if_uncertain(date)}" \
+              "#{apply_prefix_if_approximate(date)}" \
               "#{translate_season(date.season)} #{date.year}" \
               "#{apply_suffix_if_approximate(date)}" \
-              "#{apply_if_uncertain(date)}"
+              "#{apply_suffix_if_uncertain(date)}"
           end
 
           private
