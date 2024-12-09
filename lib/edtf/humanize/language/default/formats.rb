@@ -10,7 +10,7 @@ module Edtf
           private
 
           def date_format(date)
-            "#{apply_if_unspecified_year(date)}#{apply_if_uncertain(date)}"
+            "#{apply_prefix_if_uncertain(date)}#{apply_if_unspecified_year(date)}#{apply_suffix_if_uncertain(date)}"
           end
 
           def date_precision(date)
@@ -85,10 +85,17 @@ module Edtf
           end
 
           # '1990?' => 1990?
-          def apply_if_uncertain(date)
+          def apply_suffix_if_uncertain(date)
             return '' unless date.respond_to?(:uncertain?) && date.uncertain?
 
             I18n.t('edtf.terms.uncertain_date_suffix', default: '?')
+          end
+
+          # '1990?' => ?1990
+          def apply_prefix_if_uncertain(date)
+            return '' unless date.respond_to?(:uncertain?) && date.uncertain?
+
+            I18n.t('edtf.terms.uncertain_date_prefix', default: '')
           end
 
           # '198u' => 198x

@@ -46,6 +46,7 @@ fr:
       set_later_prefix_inclusive: 'Le et après '
       set_two_dates_connector_exclusive: " ou "
       set_two_dates_connector_inclusive: " et "
+      uncertain_date_prefix: ""
       uncertain_date_suffix: "?"
       unknown: 'Inconnue'
       unspecified_digit_substitute: "x"
