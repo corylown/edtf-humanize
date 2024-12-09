@@ -46,6 +46,7 @@ de:
       set_later_prefix_inclusive: "nach "
       set_two_dates_connector_exclusive: " oder "
       set_two_dates_connector_inclusive: " eund "
+      uncertain_date_prefix: ""
       uncertain_date_suffix: " ?"
       unknown: "Datum unbekannt"
       unspecified_digit_substitute: "x"

@@ -46,6 +46,7 @@ it:
       set_later_prefix_inclusive: "dopo "
       set_two_dates_connector_exclusive: " o "
       set_two_dates_connector_inclusive: " e "
+      uncertain_date_prefix: ""
       uncertain_date_suffix: " ?"
       unknown: "data sconosciuta"
       unspecified_digit_substitute: "x"
