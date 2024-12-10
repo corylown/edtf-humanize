@@ -25,7 +25,6 @@ de:
       interval_prefix_month: ""
       interval_prefix_year: ""
       interval_connector_approximate: " - "
-      interval_connector_open: " - "
       interval_connector_day: " - "
       interval_connector_month: " - "
       interval_connector_year: " - "

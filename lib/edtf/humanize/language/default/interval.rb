@@ -134,17 +134,11 @@ module Edtf
           end
 
           def interval_connector(date)
-            return interval_connector_open if date.to == :open
-
             return interval_connector_approx if date.to.approximate.day ||
                                                 date.to.approximate.month ||
                                                 date.to.approximate.year
 
             interval_connector_other(date)
-          end
-
-          def interval_connector_open
-            I18n.t('edtf.terms.interval_connector_open')
           end
 
           def interval_connector_approx
