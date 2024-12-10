@@ -48,6 +48,12 @@ fr:
       set_two_dates_connector_inclusive: " et "
       uncertain_date_suffix: "?"
       unknown: 'Inconnue'
+      unknown_start_interval_with_day: "date inconnue à %{date}"
+      unknown_start_interval_with_month: "date inconnue à %{date}"
+      unknown_start_interval_with_year: "date inconnue à %{date}"
+      unknown_end_interval_with_day: "%{date} à une date inconnue"
+      unknown_end_interval_with_month: "%{date} à une date inconnue"
+      unknown_end_interval_with_year: "%{date} à une date inconnue"
       unspecified_digit_substitute: "x"
     formats:
       day_precision_strftime_format: "%-d %B %Y"

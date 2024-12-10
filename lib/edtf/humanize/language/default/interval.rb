@@ -12,6 +12,8 @@ module Edtf
           def humanizer(date)
             if date.from == :open || date.to == :open
               open_interval(date)
+            elsif date.from == :unknown || date.to == :unknown
+              unknown_interval(date)
             else
               "#{interval_prefix(date)}" \
                 "#{formatted_date(date.from)}" \
@@ -65,6 +67,52 @@ module Edtf
               I18n.t('edtf.terms.open_end_interval_with_day',
                      date: formatted_date,
                      default: "since #{formatted_date}")
+            end
+          end
+
+          def unknown_interval(date)
+            if date.from == :unknown
+              unknown_start_interval(formatted_date: formatted_date(date.to),
+                                     precision: date.to.precision)
+            elsif date.to == :unknown
+              unknown_end_interval(formatted_date: formatted_date(date.from),
+                                   precision: date.from.precision)
+            end
+          end
+
+          # unknown/1980 => unknown year to 1980
+          def unknown_start_interval(formatted_date:, precision:)
+            case precision
+            when :year
+              I18n.t('edtf.terms.unknown_start_interval_with_year',
+                     date: formatted_date,
+                     default: "unknown year to #{formatted_date}")
+            when :month
+              I18n.t('edtf.terms.unknown_start_interval_with_month',
+                     date: formatted_date,
+                     default: "unknown month to #{formatted_date}")
+            when :day
+              I18n.t('edtf.terms.unknown_start_interval_with_day',
+                     date: formatted_date,
+                     default: "unknown date to #{formatted_date}")
+            end
+          end
+
+          # 1980/unknown => 1980 to unknown year
+          def unknown_end_interval(formatted_date:, precision:)
+            case precision
+            when :year
+              I18n.t('edtf.terms.unknown_end_interval_with_year',
+                     date: formatted_date,
+                     default: "#{formatted_date} to unknown year")
+            when :month
+              I18n.t('edtf.terms.open_end_interval_with_month',
+                     date: formatted_date,
+                     default: "#{formatted_date} to unknown month")
+            when :day
+              I18n.t('edtf.terms.open_end_interval_with_day',
+                     date: formatted_date,
+                     default: "#{formatted_date} to unknown date")
             end
           end
 
