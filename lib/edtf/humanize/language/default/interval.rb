@@ -106,11 +106,11 @@ module Edtf
                      date: formatted_date,
                      default: "#{formatted_date} to unknown year")
             when :month
-              I18n.t('edtf.terms.open_end_interval_with_month',
+              I18n.t('edtf.terms.unknown_end_interval_with_month',
                      date: formatted_date,
                      default: "#{formatted_date} to unknown month")
             when :day
-              I18n.t('edtf.terms.open_end_interval_with_day',
+              I18n.t('edtf.terms.unknown_end_interval_with_day',
                      date: formatted_date,
                      default: "#{formatted_date} to unknown date")
             end
