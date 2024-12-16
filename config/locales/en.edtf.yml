@@ -37,11 +37,11 @@ en:
       uncertain_date_suffix: "?"
       unknown: 'unknown'
       unknown_start_interval_with_day: "unknown date to %{date}"
-      unknown_start_interval_with_month: "unknown month to %{date}"
-      unknown_start_interval_with_year: "unknown year to %{date}"
+      unknown_start_interval_with_month: "unknown date to %{date}"
+      unknown_start_interval_with_year: "unknown date to %{date}"
       unknown_end_interval_with_day: "%{date} to unknown date"
-      unknown_end_interval_with_month: "%{date} to unknown month"
-      unknown_end_interval_with_year: "%{date} to unknown year"
+      unknown_end_interval_with_month: "%{date} to unknown date"
+      unknown_end_interval_with_year: "%{date} to unknown date"
       unspecified_digit_substitute: "x"
     formats:
       day_precision_strftime_format: "%B %-d, %Y"
