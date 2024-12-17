@@ -33,6 +33,18 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
+  context 'with an unknown interval start' do
+    it 'returns a humanized interval string' do
+      expect(Date.edtf('unknown/1970').humanize).to eq('unbekanntes Datum bis 1970')
+    end
+  end
+
+  context 'with an unknown interval end' do
+    it 'returns a humanized interval string' do
+      expect(Date.edtf('1970/unknown').humanize).to eq('1970 bis unbekanntes Datum')
+    end
+  end
+
   context 'with an approximate interval'
   it 'returns a humanized approximate interval string' do
     expect(Date.edtf('1970~/1980~').humanize).to(

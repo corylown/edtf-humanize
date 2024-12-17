@@ -25,7 +25,6 @@ fr:
       interval_prefix_month: "De "
       interval_prefix_year: "De "
       interval_connector_approximate: " à "
-      interval_connector_open: " à "
       interval_connector_day: " au "
       interval_connector_month: " à "
       interval_connector_year: " à "
@@ -49,6 +48,12 @@ fr:
       uncertain_date_prefix: ""
       uncertain_date_suffix: "?"
       unknown: 'Inconnue'
+      unknown_start_interval_with_day: "date inconnue à %{date}"
+      unknown_start_interval_with_month: "date inconnue à %{date}"
+      unknown_start_interval_with_year: "date inconnue à %{date}"
+      unknown_end_interval_with_day: "%{date} à une date inconnue"
+      unknown_end_interval_with_month: "%{date} à une date inconnue"
+      unknown_end_interval_with_year: "%{date} à une date inconnue"
       unspecified_digit_substitute: "x"
     formats:
       day_precision_strftime_format: "%-d %B %Y"
