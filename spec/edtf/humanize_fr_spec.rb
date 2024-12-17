@@ -35,13 +35,13 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an unknown interval start' do
     it 'returns a humanized interval string' do
-      expect(Date.edtf('unknown/1970').humanize).to eq('date inconnue à 1970')
+      expect(Date.edtf('unknown/1970').humanize).to eq("date inconnue jusqu'en 1970")
     end
   end
 
   context 'with an unknown interval end' do
     it 'returns a humanized interval string' do
-      expect(Date.edtf('1970/unknown').humanize).to eq('1970 à une date inconnue')
+      expect(Date.edtf('1970/unknown').humanize).to eq('1970 à date inconnue')
     end
   end
 
