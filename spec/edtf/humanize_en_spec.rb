@@ -59,6 +59,18 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized interval string' do
       expect(Date.edtf('1970/1980').humanize).to eq('1970 to 1980')
     end
+
+    it 'returns a humanized interval string with unspecified decades' do
+      expect(Date.edtf('198X/199X').humanize).to eq('1980s (year unknown) to 1990s (year unknown)')
+    end
+
+    it 'returns a humanized interval string with unspecified centuries' do
+      expect(Date.edtf('19XX/20XX').humanize).to eq('20th century (year unknown) to 21st century (year unknown)')
+    end
+
+    it 'returns a humanized interval string with unspecified a year and a decade' do
+      expect(Date.edtf('1985/199X').humanize).to eq('1985 to 1990s (year unknown)')
+    end
   end
 
   context 'with an open interval' do
