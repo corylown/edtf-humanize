@@ -157,15 +157,14 @@ module Edtf
             end
           end
 
-          # '198u/199u' => 1980s to 1990s
-          def apply_if_unspecified_year(date)
+          # '198X/199X' => 1980s to 1990s, '1990-XX/1991' => 1990 (month unknown) to 1991
+          def apply_if_unspecified(date)
+            display = date_precision(date)
             if date.respond_to?(:unspecified?) && date.unspecified?(:year)
-              return "#{date_precision(date)}" \
-                     "#{I18n.t('edtf.terms.interval_unspecified_suffix',
-                               default: 's')}"
+              display = "#{display}" \
+                        "#{I18n.t('edtf.terms.interval_unspecified_suffix', default: 's')}"
             end
-
-            date_precision(date)
+            annotate_unknown_parts(display, unknown_parts(date) - [:year])
           end
         end
       end
