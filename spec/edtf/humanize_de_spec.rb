@@ -86,6 +86,16 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
+  context 'with an unspecified month or day' do
+    it 'returns a humanized string with an unspecified month' do
+      expect(Date.edtf('1990-XX').humanize).to eq('1990 (Monat unbekannt)')
+    end
+
+    it 'returns a humanized string with an unspecified month and day' do
+      expect(Date.edtf('1990-XX-XX').humanize).to eq('1990 (genaues Datum unbekannt)')
+    end
+  end
+
   context 'with a season' do
     it 'returns a humanized season string' do
       expect(Date.edtf('1975-22').humanize).to eq('Sommer 1975')

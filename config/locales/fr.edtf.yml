@@ -55,8 +55,11 @@ fr:
       unknown_end_interval_with_day: "%{date} à date inconnue"
       unknown_end_interval_with_month: "%{date} à date inconnue"
       unknown_end_interval_with_year: "%{date} à date inconnue"
-      unspecified_year_in_century: "%{century} (année inconnue)"
-      unspecified_year_in_decade: "%{decade} (année inconnue)"
+      unknown_parts:
+        day: "(jour inconnu)"
+        exact_date: "(date exacte inconnue)"
+        month: "(mois inconnu)"
+        year: "(année inconnue)"
       unspecified_year_with_month: "%{month} %{span}"
     formats:
       day_precision_strftime_format: "%-d %B %Y"

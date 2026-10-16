@@ -10,12 +10,12 @@ module Edtf
           private
 
           def date_format(date)
-            "#{apply_prefix_if_uncertain(date)}#{apply_if_unspecified_year(date)}#{apply_suffix_if_uncertain(date)}"
+            "#{apply_prefix_if_uncertain(date)}#{apply_if_unspecified(date)}#{apply_suffix_if_uncertain(date)}"
           end
 
           def date_precision(date)
             if date.respond_to? :precision
-              case date.precision
+              case known_precision(date)
               when :day # 2010-10-25
                 day_precision_format(date)
               when :month # 2010-10
@@ -100,15 +100,29 @@ module Edtf
 
           # '198X'       => 1980s (year unknown)
           # '198X-05'    => May, 1980s (year unknown)
-          # '198X-05-03' => May 3, 1980s (year unknown)
-          def apply_if_unspecified_year(date)
+          # '1990-XX'    => 1990 (month unknown)
+          # '198X-05-XX' => May, 1980s (year and day unknown)
+          def apply_if_unspecified(date)
+            annotate_unknown_parts(date_with_unspecified_year(date), unknown_parts(date))
+          end
+
+          # '1990-XX' has month precision, but only the year is known
+          def known_precision(date)
+            return date.precision unless date.respond_to?(:unspecified?)
+            return :year if date.unspecified?(:month)
+            return :month if date.unspecified?(:day)
+
+            date.precision
+          end
+
+          def date_with_unspecified_year(date)
             display = date_precision(date)
             return display unless date.respond_to?(:unspecified?) && date.unspecified?(:year)
 
             span = unspecified_year_span(date)
             return display unless span
 
-            case date.precision
+            case known_precision(date)
             when :year then span
             when :month then unspecified_year_with_month(date, span)
             # Match the zero-padded year as formatted, not year.to_s, which
@@ -124,32 +138,33 @@ module Edtf
                    default: "#{month}, #{span}")
           end
 
-          # A year with unspecified trailing digits is one unknown year
-          # within a decade or century, not the whole span. edtf only
-          # parses unspecified digits at the end of the year.
+          # A year with unspecified trailing digits is one unknown year within a
+          # decade or century, not the whole span. edtf only parses unspecified
+          # digits at the end of the year.
           def unspecified_year_span(date)
+            strategy = Edtf::Humanize::Language.language_strategy
             case date.unspecified.year.map { |digit| digit == true }
-            when [false, false, false, true] then unspecified_year_in_decade(date)
-            when [false, false, true, true] then unspecified_year_in_century(date)
+            when [false, false, false, true]
+              strategy::Decade.humanizer(EDTF::Decade.new(date.year))
+            when [false, false, true, true]
+              strategy::Century.humanizer(EDTF::Century.new(date.year))
             end
           end
 
-          # '198X' => 1980s (year unknown)
-          def unspecified_year_in_decade(date)
-            strategy = Edtf::Humanize::Language.language_strategy
-            decade = strategy::Decade.humanizer(EDTF::Decade.new(date.year))
-            I18n.t('edtf.terms.unspecified_year_in_decade',
-                   decade: decade,
-                   default: "#{decade} (year unknown)")
+          def unknown_parts(date)
+            return [] unless date.respond_to?(:unspecified?)
+
+            %i[year month day].select { |part| date.unspecified?(part) }
           end
 
-          # '19XX' => 20th century (year unknown)
-          def unspecified_year_in_century(date)
-            strategy = Edtf::Humanize::Language.language_strategy
-            century = strategy::Century.humanizer(EDTF::Century.new(date.year))
-            I18n.t('edtf.terms.unspecified_year_in_century',
-                   century: century,
-                   default: "#{century} (year unknown)")
+          # [:month] => (month unknown), [:month, :day] => (exact date unknown)
+          def annotate_unknown_parts(display, parts)
+            return display if parts.empty?
+
+            key = parts.one? ? parts.first : :exact_date
+            note = I18n.t("edtf.terms.unknown_parts.#{key}",
+                          default: "(#{key.to_s.tr('_', ' ')} unknown)")
+            "#{display} #{note}"
           end
         end
       end
