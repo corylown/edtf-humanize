@@ -76,6 +76,10 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized unspecified year in a century string' do
       expect(Date.edtf('19XX').humanize).to eq('XXe siècle (année inconnue)')
     end
+
+    it 'returns a humanized unspecified year string with month precision' do
+      expect(Date.edtf('198X-05').humanize).to eq('Mai Les années 1980 (année inconnue)')
+    end
   end
 
   context 'with a season' do

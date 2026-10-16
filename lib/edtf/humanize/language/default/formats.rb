@@ -98,31 +98,36 @@ module Edtf
             I18n.t('edtf.terms.uncertain_date_prefix', default: '')
           end
 
-          # '198X' => 1980s (year unknown), '198X-05' => May 198X
+          # '198X'       => 1980s (year unknown)
+          # '198X-05'    => May, 1980s (year unknown)
+          # '198X-05-03' => May 3, 1980s (year unknown)
           def apply_if_unspecified_year(date)
             display = date_precision(date)
-            if date.respond_to?(:unspecified?) && (date.unspecified? :year)
-              unspecified_span = unspecified_year_span(date)
-              return unspecified_span if unspecified_span
+            return display unless date.respond_to?(:unspecified?) && date.unspecified?(:year)
 
-              year_substitute =
-                date.year_precision.edtf.gsub(
-                  'u',
-                  I18n.t('edtf.terms.unspecified_digit_substitute',
-                         default: 'x')
-                )
-              # Match the zero-padded year as formatted, not year.to_s, which
-              # mismatches for years 0-999 and negative years ('00XX', '-01XX')
-              display.sub!(date.strftime('%Y'), year_substitute)
+            span = unspecified_year_span(date)
+            return display unless span
+
+            case date.precision
+            when :year then span
+            when :month then unspecified_year_with_month(date, span)
+            # Match the zero-padded year as formatted, not year.to_s, which
+            # mismatches for years 0-999 and negative years ('00XX', '-01XX')
+            else display.sub(date.strftime('%Y'), span)
             end
-            display
+          end
+
+          def unspecified_year_with_month(date, span)
+            month = I18n.localize(date, format: '%B')
+            I18n.t('edtf.terms.unspecified_year_with_month',
+                   month: month, span: span,
+                   default: "#{month}, #{span}")
           end
 
           # A year with unspecified trailing digits is one unknown year
-          # within a decade or century, not the whole span
+          # within a decade or century, not the whole span. edtf only
+          # parses unspecified digits at the end of the year.
           def unspecified_year_span(date)
-            return unless date.precision == :year
-
             case date.unspecified.year.map { |digit| digit == true }
             when [false, false, false, true] then unspecified_year_in_decade(date)
             when [false, false, true, true] then unspecified_year_in_century(date)
