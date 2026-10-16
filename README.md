@@ -1,5 +1,6 @@
 # edtf-humanize
 
+[![CI](https://github.com/corylown/edtf-humanize/actions/workflows/ci.yml/badge.svg)](https://github.com/corylown/edtf-humanize/actions/workflows/ci.yml)
 
 The EDTF-humanize gem adds a humanize method to EDTF::Decade, EDTF::Century, EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, and Date (ISO 8601 compliant) objects. It uses the [edtf-ruby](https://github.com/inukshuk/edtf-ruby) gem for parsing EDTF date strings into Date and EDTF objects.
 
