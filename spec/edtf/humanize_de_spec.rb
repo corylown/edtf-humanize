@@ -19,6 +19,10 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized century string' do
       expect(Date.edtf('19xx').humanize).to eq('20. Jahrhundert')
     end
+
+    it 'returns a humanized BC century string' do
+      expect(EDTF::Century.new(-100).humanize).to eq('2. Jahrhundert v. Chr.')
+    end
   end
 
   context 'with an interval' do

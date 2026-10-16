@@ -11,7 +11,8 @@ module Edtf
 
           def humanizer(date)
             "#{(date.year.abs / 100) + 1}." \
-              "#{century_number_suffix}"
+              "#{century_number_suffix}" \
+              "#{century_sign_suffix(date)}"
           end
 
           private
