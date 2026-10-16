@@ -74,6 +74,14 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized season string' do
       expect(Date.edtf('1975-22').humanize).to eq('été 1975')
     end
+
+    it 'returns a humanized approximate season string' do
+      expect(Date.edtf('1975-22~').humanize).to eq('été 1975 environ')
+    end
+
+    it 'returns a humanized uncertain and approximate season string' do
+      expect(Date.edtf('1975-22?~').humanize).to eq('été 1975 environ?')
+    end
   end
 
   context 'with a set' do
