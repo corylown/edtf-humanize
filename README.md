@@ -123,6 +123,51 @@ Examples with current locale `:fr`:
  => "XXIe siècle"
 ```
 
+### Setting the locale
+
+`humanize` uses the current `I18n.locale`. Set it globally or for a block:
+
+```ruby
+I18n.locale = :de
+Date.edtf('1975-07-01').humanize # => "1. Juli 1975"
+
+I18n.with_locale(:fr) { Date.edtf('1975-07-01').humanize } # => "1 Juillet 1975"
+```
+
+The supported locales are `:en`, `:fr`, `:de` and `:it`. Setting any other locale raises `I18n::InvalidLocale` unless you provide translations for it (see below).
+
+### Using outside Rails
+
+No extra setup is needed beyond requiring the gem. `require 'edtf-humanize'` adds the gem's locale files to `I18n.load_path`:
+
+```ruby
+require 'edtf-humanize'
+
+I18n.locale = :it
+Date.edtf('1975-22').humanize # => "estate 1975"
+```
+
+Require `edtf-humanize`, not `edtf/humanize`. The latter loads the code without the locale files, so setting a non-English locale raises `I18n::InvalidLocale: :fr is not a valid locale`.
+
+### Customizing terms
+
+All wording comes from the I18n keys in [`config/locales`](config/locales). To change a term, add your own locale file to `I18n.load_path` after requiring the gem; later files take precedence:
+
+```yaml
+# config/locales/my_overrides.en.yml
+en:
+  edtf:
+    terms:
+      approximate_date_prefix_year: "about "
+```
+
+```ruby
+I18n.load_path << 'config/locales/my_overrides.en.yml'
+I18n.reload! # only needed if translations were already used
+
+Date.edtf('1981~').humanize # => "about 1981"
+```
+
 Pull requests to add support for additional languages are welcome. You must add a new language module for the language and include the Default language module. A locales file with translations is also needed. The supporting files for French may be used as a reference for adding support for additional languages.:
 
 ```
