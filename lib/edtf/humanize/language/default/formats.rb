@@ -108,7 +108,9 @@ module Edtf
                   I18n.t('edtf.terms.unspecified_digit_substitute',
                          default: 'x')
                 )
-              display.gsub!(date.year.to_s, year_substitute)
+              # Match the zero-padded year as formatted, not year.to_s, which
+              # mismatches for years 0-999 and negative years ('00XX', '-01XX')
+              display.sub!(date.strftime('%Y'), year_substitute)
             end
             display
           end
