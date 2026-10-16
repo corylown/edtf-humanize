@@ -10,8 +10,7 @@ module Edtf
           extend self
 
           def humanizer(date)
-            require 'roman'
-            "#{((date.year.abs / 100) + 1).to_roman}" \
+            "#{RomanNumerals.to_roman((date.year.abs / 100) + 1)}" \
               "#{century_number_suffix}" \
               "#{century_sign_suffix(date)}"
           end

@@ -6,6 +6,7 @@ module Edtf
     require 'active_support/core_ext/array/conversions' # Array#to_sentence
     require 'edtf'
 
+    require 'edtf/humanize/roman_numerals'
     require 'edtf/humanize/language'
     require 'edtf/humanize/decade'
     require 'edtf/humanize/century'
