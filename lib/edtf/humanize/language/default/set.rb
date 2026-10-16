@@ -35,7 +35,7 @@ module Edtf
                 "#{apply_if_later(dates, index)}" \
                 "#{apply_prefix_if_approximate(date)}" \
                 "#{date_format(date)}" \
-                "#{apply_suffix_if_approximate(date)}" \
+                "#{apply_suffix_if_approximate(date)}"
             end
           end
 

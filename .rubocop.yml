@@ -1,11 +1,10 @@
-require: rubocop-rspec
+plugins:
+  - rubocop-rake
+  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.4
   NewCops: enable
-
-Documentation:
-  Enabled: false
 
 Metrics/AbcSize:
   Max: 25
@@ -28,12 +27,15 @@ Metrics/ModuleLength:
 Naming/FileName:
   Enabled: false
 
-RSpec/FilePath:
+RSpec/SpecFilePathFormat:
   Enabled: false
 
 Style/BlockComments:
   Exclude:
     - spec/spec_helper.rb
+
+Style/Documentation:
+  Enabled: false
 
 Style/ModuleFunction:
   Enabled: false

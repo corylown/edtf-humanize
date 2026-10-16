@@ -10,8 +10,9 @@ gemspec
 gem 'edtf', '>= 2.3', '< 4'
 gem 'rake', '~> 13.1'
 gem 'rspec', '~> 3.13'
-gem 'rubocop', '~> 1.61'
-gem 'rubocop-rspec', '~> 2.27'
+gem 'rubocop', '~> 1.92'
+gem 'rubocop-rake', '~> 0.7'
+gem 'rubocop-rspec', '~> 3.10'
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
