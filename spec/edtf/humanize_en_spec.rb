@@ -128,7 +128,15 @@ RSpec.describe Edtf::Humanize do
     end
 
     it 'returns a humanized unspecified year string with month precision' do
-      expect(Date.edtf('00XX-05').humanize).to eq('May 00XX')
+      expect(Date.edtf('198X-05').humanize).to eq('May, 1980s (year unknown)')
+    end
+
+    it 'returns a humanized unspecified year string with day precision' do
+      expect(Date.edtf('198X-05-03').humanize).to eq('May 3, 1980s (year unknown)')
+    end
+
+    it 'returns a humanized unspecified year in a century string with month precision' do
+      expect(Date.edtf('00XX-05').humanize).to eq('May, 1st century (year unknown)')
     end
 
     it 'returns a humanized unspecified year string in a set' do

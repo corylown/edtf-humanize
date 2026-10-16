@@ -55,9 +55,9 @@ it:
       unknown_end_interval_with_day: "%{date} a data sconosciuta"
       unknown_end_interval_with_month: "%{date} a data sconosciuta"
       unknown_end_interval_with_year: "%{date} a data sconosciuta"
-      unspecified_digit_substitute: "x"
       unspecified_year_in_century: "%{century} (anno sconosciuto)"
       unspecified_year_in_decade: "%{decade} (anno sconosciuto)"
+      unspecified_year_with_month: "%{month} %{span}"
     formats:
       day_precision_strftime_format: "%-d %B %Y"
       month_precision_strftime_format: "%B %Y"
