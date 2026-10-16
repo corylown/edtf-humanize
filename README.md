@@ -80,7 +80,7 @@ require 'edtf-humanize'
 > d = Date.edtf('19xx')
  => #<EDTF::Century:0x0000000b6fe798 @year=1900>
 > d.humanize
- => "1900s"
+ => "20th century"
  ```
 
 ### EDTF::Interval

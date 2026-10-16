@@ -27,11 +27,31 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized decade string' do
       expect(Date.edtf('199x').humanize).to eq('1990s')
     end
+
+    it 'returns a humanized BC decade string' do
+      expect(EDTF::Decade.new(-10).humanize).to eq('10s BCE')
+    end
   end
 
   context 'with a century' do
     it 'returns a humanized century string' do
-      expect(Date.edtf('19xx').humanize).to eq('1900s')
+      expect(Date.edtf('19xx').humanize).to eq('20th century')
+    end
+
+    it 'returns a humanized first century string' do
+      expect(Date.edtf('00xx').humanize).to eq('1st century')
+    end
+
+    it 'returns a humanized 11th century string' do
+      expect(EDTF::Century.new(1000).humanize).to eq('11th century')
+    end
+
+    it 'returns a humanized 21st century string' do
+      expect(Date.edtf('20xx').humanize).to eq('21st century')
+    end
+
+    it 'returns a humanized BC century string' do
+      expect(EDTF::Century.new(-100).humanize).to eq('2nd century BCE')
     end
   end
 

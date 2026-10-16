@@ -20,6 +20,7 @@ fr:
       approximate_date_suffix_year: " environ"
       decade_prefix: "Les années "
       decade_suffix: ""
+      bc_suffix: " avant J.C."
       century_suffix: ""
       interval_prefix_day: "Du "
       interval_prefix_month: "De "

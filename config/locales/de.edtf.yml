@@ -20,6 +20,7 @@ de:
       approximate_date_suffix_year: ""
       decade_prefix: ""
       decade_suffix: "er Jahre"
+      bc_suffix: " v. Chr."
       century_suffix: ""
       interval_prefix_day: ""
       interval_prefix_month: ""

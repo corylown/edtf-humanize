@@ -7,6 +7,7 @@ en:
       approximate_date_suffix_day: ""
       approximate_date_suffix_month: ""
       approximate_date_suffix_year: ""
+      bc_suffix: " BCE"
       century_suffix: "s"
       decade_prefix: ""
       decade_suffix: "s"

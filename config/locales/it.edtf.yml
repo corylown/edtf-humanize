@@ -20,6 +20,7 @@ it:
       approximate_date_suffix_year: ""
       decade_prefix: "anni "
       decade_suffix: ""
+      bc_suffix: " a. C."
       century_suffix: ""
       interval_prefix_day: ""
       interval_prefix_month: ""
