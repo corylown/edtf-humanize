@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activesupport', '>= 6.1'
   s.add_dependency 'edtf', '>= 3.1', '< 4'
-  s.add_dependency 'roman', '>= 0.2', '< 0.4'
 
   s.metadata['changelog_uri'] = "#{s.homepage}/releases"
   s.metadata['rubygems_mfa_required'] = 'true'
