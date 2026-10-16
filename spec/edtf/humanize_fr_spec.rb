@@ -13,6 +13,10 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized decade string' do
       expect(Date.edtf('199x').humanize).to eq('Les années 1990')
     end
+
+    it 'returns a humanized BC decade string' do
+      expect(EDTF::Decade.new(-10).humanize).to eq('Les années 10 avant J.C.')
+    end
   end
 
   context 'with a century' do
