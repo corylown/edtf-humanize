@@ -15,12 +15,12 @@ Gem::Specification.new do |s|
                   'EDTF::Interval, EDTF::Set, EDTF::Season, EDTF::Unknown, ' \
                   'and Date (ISO 8601 compliant) objects.'
   s.license     = 'BSD-3-Clause'
-  s.required_ruby_version = '>= 2.4'
+  s.required_ruby_version = '>= 3.1'
 
   s.files = Dir['{config,lib}/**/*', 'LICENSE.txt', 'README.md']
 
-  s.add_dependency 'activesupport', '>= 4'
-  s.add_dependency 'edtf', '>= 2.3', '< 4'
+  s.add_dependency 'activesupport', '>= 6.1'
+  s.add_dependency 'edtf', '>= 3.1', '< 4'
   s.add_dependency 'roman', '>= 0.2', '< 0.4'
 
   s.metadata['changelog_uri'] = "#{s.homepage}/releases"
