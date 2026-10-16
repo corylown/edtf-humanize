@@ -2,10 +2,8 @@
 
 $LOAD_PATH.push File.expand_path('lib', __dir__)
 
-# Maintain your gem's version:
 require 'edtf/humanize/version'
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = 'edtf-humanize'
   s.version     = Edtf::Humanize::VERSION
@@ -19,7 +17,7 @@ Gem::Specification.new do |s|
   s.license     = 'BSD-3-Clause'
   s.required_ruby_version = '>= 2.4'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE.txt', 'README.rdoc']
+  s.files = Dir['{config,lib}/**/*', 'LICENSE.txt', 'README.md']
 
   s.add_dependency 'activesupport', '>= 4'
   s.add_dependency 'edtf', '>= 2.3', '< 4'
