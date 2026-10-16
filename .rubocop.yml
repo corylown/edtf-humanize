@@ -30,10 +30,6 @@ Naming/FileName:
 RSpec/SpecFilePathFormat:
   Enabled: false
 
-Style/BlockComments:
-  Exclude:
-    - spec/spec_helper.rb
-
 Style/Documentation:
   Enabled: false
 
