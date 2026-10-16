@@ -98,10 +98,13 @@ module Edtf
             I18n.t('edtf.terms.uncertain_date_prefix', default: '')
           end
 
-          # '198u' => 198x
+          # '198X' => 1980s (year unknown), '198X-05' => May 198X
           def apply_if_unspecified_year(date)
             display = date_precision(date)
             if date.respond_to?(:unspecified?) && (date.unspecified? :year)
+              unspecified_span = unspecified_year_span(date)
+              return unspecified_span if unspecified_span
+
               year_substitute =
                 date.year_precision.edtf.gsub(
                   'u',
@@ -113,6 +116,35 @@ module Edtf
               display.sub!(date.strftime('%Y'), year_substitute)
             end
             display
+          end
+
+          # A year with unspecified trailing digits is one unknown year
+          # within a decade or century, not the whole span
+          def unspecified_year_span(date)
+            return unless date.precision == :year
+
+            case date.unspecified.year.map { |digit| digit == true }
+            when [false, false, false, true] then unspecified_year_in_decade(date)
+            when [false, false, true, true] then unspecified_year_in_century(date)
+            end
+          end
+
+          # '198X' => 1980s (year unknown)
+          def unspecified_year_in_decade(date)
+            strategy = Edtf::Humanize::Language.language_strategy
+            decade = strategy::Decade.humanizer(EDTF::Decade.new(date.year))
+            I18n.t('edtf.terms.unspecified_year_in_decade',
+                   decade: decade,
+                   default: "#{decade} (year unknown)")
+          end
+
+          # '19XX' => 20th century (year unknown)
+          def unspecified_year_in_century(date)
+            strategy = Edtf::Humanize::Language.language_strategy
+            century = strategy::Century.humanizer(EDTF::Century.new(date.year))
+            I18n.t('edtf.terms.unspecified_year_in_century',
+                   century: century,
+                   default: "#{century} (year unknown)")
           end
         end
       end

@@ -74,7 +74,11 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an unspecified year iso date' do
     it 'returns a humanized unspecified year ISO date string' do
-      expect(Date.edtf('197X').humanize).to eq('197X')
+      expect(Date.edtf('197X').humanize).to eq('1970er Jahre (Jahr unbekannt)')
+    end
+
+    it 'returns a humanized unspecified year in a century string' do
+      expect(Date.edtf('19XX').humanize).to eq('20. Jahrhundert (Jahr unbekannt)')
     end
   end
 

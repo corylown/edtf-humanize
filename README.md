@@ -50,10 +50,10 @@ require 'edtf-humanize'
  => Thu, 01 Jan 1981
 > d.humanize
  => "circa 1981"
-> d = Date.edtf('198u')
+> d = Date.edtf('198X')
  => Tue, 01 Jan 1980
 > d.humanize
- => "198x"
+ => "1980s (year unknown)"
  ```
 
 ### EDTF::Season
