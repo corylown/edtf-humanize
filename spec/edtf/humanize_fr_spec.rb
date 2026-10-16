@@ -66,7 +66,7 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an unspecified year iso date' do
     it 'returns a humanized unspecified year ISO date string' do
-      expect(Date.edtf('197u').humanize).to eq('197X')
+      expect(Date.edtf('197X').humanize).to eq('197X')
     end
   end
 
@@ -124,7 +124,7 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an unknown value' do
     it 'returns a humanized unknown string' do
-      expect(Date.edtf('uuuu').humanize).to eq('Inconnue')
+      expect(Date.edtf('XXXX').humanize).to eq('Inconnue')
     end
   end
 end

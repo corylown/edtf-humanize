@@ -2,6 +2,8 @@
 
 module Edtf
   module Humanize
+    require 'active_support'
+    require 'active_support/core_ext/array/conversions' # Array#to_sentence
     require 'edtf'
 
     require 'edtf/humanize/language'
