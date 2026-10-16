@@ -143,11 +143,17 @@ module Edtf
           # digits at the end of the year.
           def unspecified_year_span(date)
             strategy = Edtf::Humanize::Language.language_strategy
+            case unspecified_year_kind(date)
+            when :decade then strategy::Decade.humanizer(EDTF::Decade.new(date.year))
+            when :century then strategy::Century.humanizer(EDTF::Century.new(date.year))
+            end
+          end
+
+          # '198X' => :decade, '19XX' => :century
+          def unspecified_year_kind(date)
             case date.unspecified.year.map { |digit| digit == true }
-            when [false, false, false, true]
-              strategy::Decade.humanizer(EDTF::Decade.new(date.year))
-            when [false, false, true, true]
-              strategy::Century.humanizer(EDTF::Century.new(date.year))
+            when [false, false, false, true] then :decade
+            when [false, false, true, true] then :century
             end
           end
 

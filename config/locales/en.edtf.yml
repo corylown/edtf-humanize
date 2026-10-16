@@ -18,7 +18,6 @@ en:
       interval_connector_day: " to "
       interval_connector_month: " to "
       interval_connector_year: " to "
-      interval_unspecified_suffix: "s"
       open_start_interval_with_day: "until %{date}"
       open_start_interval_with_month: "until %{date}"
       open_start_interval_with_year: "until %{date}"

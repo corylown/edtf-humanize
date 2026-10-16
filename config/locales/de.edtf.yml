@@ -29,7 +29,6 @@ de:
       interval_connector_day: " - "
       interval_connector_month: " - "
       interval_connector_year: " - "
-      interval_unspecified_suffix: ""
       open_start_interval_with_day: "bis %{date}"
       open_start_interval_with_month: "bis %{date}"
       open_start_interval_with_year: "bis %{date}"

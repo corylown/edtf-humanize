@@ -156,16 +156,6 @@ module Edtf
               I18n.t('edtf.terms.interval_connector_day', default: ' to ')
             end
           end
-
-          # '198X/199X' => 1980s to 1990s, '1990-XX/1991' => 1990 (month unknown) to 1991
-          def apply_if_unspecified(date)
-            display = date_precision(date)
-            if date.respond_to?(:unspecified?) && date.unspecified?(:year)
-              display = "#{display}" \
-                        "#{I18n.t('edtf.terms.interval_unspecified_suffix', default: 's')}"
-            end
-            annotate_unknown_parts(display, unknown_parts(date) - [:year])
-          end
         end
       end
     end
