@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'edtf', '>= 2.3', '< 4'
 gem 'rake', '~> 13.1'
 gem 'rspec', '~> 3.13'
 gem 'rubocop', '~> 1.92'
