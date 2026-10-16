@@ -23,5 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'edtf', '>= 2.3', '< 4'
   s.add_dependency 'roman', '~> 0.2.0'
 
+  s.metadata['changelog_uri'] = "#{s.homepage}/releases"
   s.metadata['rubygems_mfa_required'] = 'true'
+  s.metadata['source_code_uri'] = s.homepage
 end
