@@ -100,27 +100,39 @@ RSpec.describe Edtf::Humanize do
 
   context 'with an unspecified year iso date' do
     it 'returns a humanized unspecified year ISO date string' do
-      expect(Date.edtf('197X').humanize).to eq('197X')
+      expect(Date.edtf('197X').humanize).to eq('1970s (year unknown)')
+    end
+
+    it 'returns a humanized unspecified year in a century string' do
+      expect(Date.edtf('19XX').humanize).to eq('20th century (year unknown)')
     end
 
     it 'returns a humanized unspecified year string for legacy u syntax' do
-      expect(Date.edtf('197u').humanize).to eq('197X')
+      expect(Date.edtf('197u').humanize).to eq('1970s (year unknown)')
     end
 
     it 'returns a humanized unspecified year string for year 0' do
-      expect(Date.edtf('00XX').humanize).to eq('00XX')
+      expect(Date.edtf('00XX').humanize).to eq('1st century (year unknown)')
     end
 
     it 'returns a humanized unspecified year string for years 100-999' do
-      expect(Date.edtf('01XX').humanize).to eq('01XX')
+      expect(Date.edtf('01XX').humanize).to eq('2nd century (year unknown)')
     end
 
     it 'returns a humanized unspecified year string for negative years' do
-      expect(Date.edtf('-01XX').humanize).to eq('-01XX')
+      expect(Date.edtf('-01XX').humanize).to eq('2nd century BCE (year unknown)')
+    end
+
+    it 'returns a humanized unspecified year string for negative decades' do
+      expect(Date.edtf('-001X').humanize).to eq('10s BCE (year unknown)')
     end
 
     it 'returns a humanized unspecified year string with month precision' do
       expect(Date.edtf('00XX-05').humanize).to eq('May 00XX')
+    end
+
+    it 'returns a humanized unspecified year string in a set' do
+      expect(Date.edtf('[198X,1990]').humanize).to eq('1980s (year unknown) or 1990')
     end
   end
 
