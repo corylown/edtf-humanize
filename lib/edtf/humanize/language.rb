@@ -3,8 +3,10 @@
 module Edtf
   module Humanize
     module Language
-      extend self
+      module_function
 
+      # Public as Language.language_strategy, private when mixed into
+      # Date and the EDTF classes
       def language_strategy
         Edtf::Humanize.configuration.language_strategy(I18n.locale)
       end

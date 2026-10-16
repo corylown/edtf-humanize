@@ -9,6 +9,20 @@ RSpec.describe Edtf::Humanize do
 
   it { is_expected.to be_a(Module) }
 
+  context 'with the language strategy' do
+    it 'returns the strategy for the current locale' do
+      expect(Edtf::Humanize::Language.language_strategy).to(
+        eq(Edtf::Humanize::Language::English)
+      )
+    end
+
+    it 'is not a public method on humanizable objects' do
+      %w[1975-07-01 1975-22 1970/1980 [1667,1668] XXXX 197x 19xx].each do |edtf|
+        expect(Date.edtf(edtf)).not_to respond_to(:language_strategy)
+      end
+    end
+  end
+
   context 'with a decade' do
     it 'returns a humanized decade string' do
       expect(Date.edtf('199x').humanize).to eq('1990s')
