@@ -68,6 +68,22 @@ RSpec.describe Edtf::Humanize do
     it 'returns a humanized unspecified year ISO date string' do
       expect(Date.edtf('197u').humanize).to eq('197X')
     end
+
+    it 'returns a humanized unspecified year string for year 0' do
+      expect(Date.edtf('00XX').humanize).to eq('00XX')
+    end
+
+    it 'returns a humanized unspecified year string for years 100-999' do
+      expect(Date.edtf('01XX').humanize).to eq('01XX')
+    end
+
+    it 'returns a humanized unspecified year string for negative years' do
+      expect(Date.edtf('-01XX').humanize).to eq('-01XX')
+    end
+
+    it 'returns a humanized unspecified year string with month precision' do
+      expect(Date.edtf('00XX-05').humanize).to eq('May 00XX')
+    end
   end
 
   context 'with a season' do
