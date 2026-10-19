@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{config,lib}/**/*', 'LICENSE.txt', 'README.md']
 
   s.add_dependency 'activesupport', '>= 6.1'
-  s.add_dependency 'edtf', '>= 3.1', '< 4'
+  s.add_dependency 'edtf', '>= 3.1', '< 5'
 
   s.metadata['changelog_uri'] = "#{s.homepage}/releases"
   s.metadata['rubygems_mfa_required'] = 'true'
