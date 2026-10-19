@@ -16,7 +16,7 @@ It adds a `humanize` method to `Date` and to the `EDTF::Century`, `EDTF::Decade`
 - [edtf](https://rubygems.org/gems/edtf) 3.1 or later
 - ActiveSupport 6.1 or later
 
-On Ruby 4.0, if nothing else in your bundle depends on `racc` (Rails apps usually get it through nokogiri), add `gem 'racc'` to your Gemfile. edtf needs it but doesn't declare it ([inukshuk/edtf-ruby#50](https://github.com/inukshuk/edtf-ruby/issues/50)).
+On Ruby 4.0 with edtf 3.x, if nothing else in your bundle depends on `racc` (Rails apps usually get it through nokogiri), add `gem 'racc'` to your Gemfile. edtf 3.x needs it but doesn't declare it ([inukshuk/edtf-ruby#50](https://github.com/inukshuk/edtf-ruby/issues/50)); edtf 4 declares it.
 
 ## Installation
 
