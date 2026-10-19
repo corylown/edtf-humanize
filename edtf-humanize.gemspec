@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{config,lib}/**/*', 'LICENSE.txt', 'README.md']
 
   s.add_dependency 'activesupport', '>= 4'
-  s.add_dependency 'edtf', '>= 2.3', '< 4'
+  s.add_dependency 'edtf', '>= 2.3', '< 5'
   s.add_dependency 'roman', '>= 0.2', '< 0.4'
 
   s.metadata['changelog_uri'] = "#{s.homepage}/releases"
