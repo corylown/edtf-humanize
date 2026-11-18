@@ -16,14 +16,6 @@ module Edtf
               "#{I18n.t('edtf.terms.decade_suffix', default: 's')}" \
               "#{bc_suffix(date)}"
           end
-
-          private
-
-          def bc_suffix(date)
-            return '' unless date.begin.year.negative?
-
-            I18n.t('edtf.terms.bc_suffix', default: ' BCE')
-          end
         end
       end
     end
