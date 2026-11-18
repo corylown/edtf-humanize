@@ -21,6 +21,30 @@ RSpec.describe Edtf::Humanize do
     end
   end
 
+  # Locales without their own strategy fall back to the default one
+  context 'with the default language strategy' do
+    before do
+      allow(described_class.configuration).to receive(:language_strategy)
+        .and_return(Edtf::Humanize::Language::Default)
+    end
+
+    it 'returns a humanized decade string' do
+      expect(Date.edtf('199x').humanize).to eq('1990s')
+    end
+
+    it 'returns a humanized century string' do
+      expect(Date.edtf('19xx').humanize).to eq('1900s')
+    end
+
+    it 'returns a humanized BC century string' do
+      expect(EDTF::Century.new(-100).humanize).to eq('100s BCE')
+    end
+
+    it 'returns a humanized BC decade string' do
+      expect(EDTF::Decade.new(-10).humanize).to eq('10s BCE')
+    end
+  end
+
   context 'with an interval' do
     it 'returns a humanized interval string' do
       expect(Date.edtf('1970/1980').humanize).to eq('1970 to 1980')
