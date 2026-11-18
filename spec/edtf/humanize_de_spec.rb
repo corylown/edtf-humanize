@@ -133,6 +133,10 @@ RSpec.describe Edtf::Humanize do
       )
     end
 
+    it 'returns a humanized inclusive set string with two dates' do
+      expect(Date.edtf('{1980, 1981}').humanize).to eq('1980 und 1981')
+    end
+
     it 'returns a humanized open (before) exclusive set string' do
       expect(Date.edtf('[..1980]').humanize).to(
         eq('vor 1980')
