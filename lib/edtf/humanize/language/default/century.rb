@@ -9,9 +9,11 @@ module Edtf
 
           extend self
 
+          # '19xx' => 1900s, '-01xx' => 100s BCE
           def humanizer(date)
-            "#{date.begin.year}" \
-              "#{I18n.t('edtf.terms.century_suffix', default: 's')}"
+            "#{date.begin.year.abs}" \
+              "#{I18n.t('edtf.terms.century_suffix', default: 's')}" \
+              "#{bc_suffix(date)}"
           end
         end
       end
